@@ -7,6 +7,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, minus.</p>
+      <p>Pritom Deb</p>
     </>
   );
 }
