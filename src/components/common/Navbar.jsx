@@ -1,13 +1,7 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Property", href: "/property" },
-  { name: "About Us", href: "/about-us" },
-  { name: "Contact", href: "/contact" },
-];
+import { navigation } from "../../Constants";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
