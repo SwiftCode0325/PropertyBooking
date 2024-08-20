@@ -1,5 +1,9 @@
 import { FaBed, FaBath, FaEye } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const Card = ({ property }) => {
+    const { id } = property;
+    console.log(id);
+
     return (
         <div
             className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
@@ -16,9 +20,11 @@ const Card = ({ property }) => {
                     <span><FaBath className="inline-block mr-1" /> {property?.baths} Baths</span>
                     <span>{property?.area}</span>
                 </div>
-                <button className="mt-4 text-white px-4 py-2 rounded flex items-center" style={{ backgroundColor: '#01204E' }}>
-                    <FaEye className="mr-2" /> See More
-                </button>
+                <Link to={`/details-page/${id}`}>
+                    <button className="mt-4 text-white px-4 py-2 rounded flex items-center" style={{ backgroundColor: '#01204E' }}>
+                        <FaEye className="mr-2" /> See More
+                    </button>
+                </Link>
             </div>
         </div>
     );

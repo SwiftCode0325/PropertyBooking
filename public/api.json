@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co/bNMxD70/south-sun-house03.jpg",
+    "title": "Luxurious Villa",
+    "description": "A beautiful villa in the heart of the city.",
+    "rate": "$2,500/month",
+    "area": "3500 sqft",
+    "beds": 4,
+    "baths": 3,
+    "location": "New York, NY"
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co/bNMxD70/south-sun-house03.jpg",
+    "title": "Modern Apartment",
+    "description": "Spacious apartment with city views.",
+    "rate": "$1,800/month",
+    "area": "2000 sqft",
+    "beds": 3,
+    "baths": 2,
+    "location": "Los Angeles, CA"
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co/bNMxD70/south-sun-house03.jpg",
+    "title": "Modern Apartment",
+    "description": "Spacious apartment with city views.",
+    "rate": "$1,  800/month",
+    "area": "2000 sqft",
+    "beds": 3,
+    "baths": 2,
+    "location": "Los Angeles, CA"
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co/bNMxD70/south-sun-house03.jpg",
+    "title": "Modern Apartment",
+    "description": "Spacious apartment with city views.",
+    "rate": "$1,    800/month",
+    "area": "2000 sqft",
+    "beds": 3,
+    "baths": 2,
+    "location": "Los Angeles, CA"
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co/bNMxD70/south-sun-house03.jpg",
+    "title": "Modern Apartment",
+    "description": "Spacious apartment with city views.",
+    "rate": "$1,  800/month",
+    "area": "2000 sqft",
+    "beds": 3,
+    "baths": 2,
+    "location": "Los Angeles, CA"
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co/bNMxD70/south-sun-house03.jpg",
+    "title": "Modern Apartment",
+    "description": "Spacious apartment with city views.",
+    "rate": "$1,   800/month",
+    "area": "2000 sqft",
+    "beds": 3,
+    "baths": 2,
+    "location": "Los Angeles, CA"
+  }
+]
