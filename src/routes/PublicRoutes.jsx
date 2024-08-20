@@ -22,21 +22,17 @@ export const router = createBrowserRouter([
         path: '/details-page/:id',
         element: <DetailsPage></DetailsPage>,
         loader: () => fetch('/api.json')
-      }
-
+      },
+      {
         path: '/property',
         element: <Properties />
-      },
-
-    ]
-
-        path: "/",
-        element: <Home></Home>,
       },
       {
         path: "about-us",
         element: <About></About>,
       },
-    ],
-  },
+
+    ]
+  }
+
 ]);
