@@ -9,6 +9,8 @@ const navigation = [
   { name: "About Us", href: "/about-us" },
   { name: "Contact", href: "/contact" },
 ];
+import { navigation } from "../../Constants";
+
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
