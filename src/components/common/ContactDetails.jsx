@@ -1,12 +1,20 @@
 import { IoMailOpenOutline } from "react-icons/io5";
 import { FaMobileScreen } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const ContactDetails = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 1000, 
+          once: true, 
+        });
+      }, []);
   return (
-    <div className="container mx-auto mt-24 mb-24 grid grid-cols gap-6 md:grid-cols-3 lg:grid-cols-3">
+    <div className="container overflow-hidden mx-auto mt-24 mb-24 grid grid-cols gap-6 md:grid-cols-3 lg:grid-cols-3">
       {/* card 1 */}
-      <div className="bg-[#EBF4F6] p-5 text-center rounded-lg">
+      <div data-aos="fade-right" className="bg-[#EBF4F6] p-5 text-center rounded-lg hover:shadow-md transition-all">
         <div className="flex justify-center mt-3">
           <IoMailOpenOutline className="text-4xl" />
         </div>
@@ -21,7 +29,7 @@ const ContactDetails = () => {
         </p>
       </div>
       {/* card 2 */}
-      <div className="bg-[#EBF4F6] p-5 text-center rounded-lg">
+      <div data-aos="fade-up-right" className="bg-[#EBF4F6] p-5 hover:shadow-md transition-all text-center rounded-lg">
         <div className="flex justify-center mt-3">
           <FaMobileScreen className="text-4xl" />
         </div>
@@ -38,7 +46,7 @@ const ContactDetails = () => {
       </div>
 
       {/* card 3 */}
-      <div className="bg-[#EBF4F6] p-5 text-center rounded-lg">
+      <div data-aos="fade-up-left" className="bg-[#EBF4F6] p-5 hover:shadow-md transition-all text-center rounded-lg">
         <div className="flex justify-center mt-3">
           <IoLocationOutline className="text-4xl" />
         </div>

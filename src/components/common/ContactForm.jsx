@@ -1,7 +1,16 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 const ContactForm = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        })
+    },[])
   return (
-    <div className="container mx-auto mb-24">
-      <div className="text-center">
+    <div className="container mx-auto mb-24 overflow-hidden">
+      <div data-aos="fade-up-right" className="text-center">
         <h1 className="text-4xl font-bold">Ask Before Booking</h1>
         <p className=" space-x-3 uppercase mt-3 tracking-widest">
           Contact us anytime
@@ -13,7 +22,7 @@ const ContactForm = () => {
       </div>
       <section className="py-6 mt-20 dark:bg-gray-100 dark:text-gray-900">
         <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
-          <div className="py-6 md:py-0 md:px-6">
+          <div data-aos="fade-up-left" className="py-6 md:py-0 md:px-6">
             <h1 className="text-4xl font-bold">Get in touch</h1>
             <p className="pt-2 pb-4">
               Fill in the form to start a conversation
@@ -59,7 +68,7 @@ const ContactForm = () => {
               </p>
             </div>
           </div>
-          <form
+          <form data-aos="fade-up-right"
             noValidate=""
             className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
           >
