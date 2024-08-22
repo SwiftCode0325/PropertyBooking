@@ -1,4 +1,5 @@
 import ContactDetails from "../../components/common/ContactDetails";
+import ContactForm from "../../components/common/ContactForm";
 import Map from "../../components/common/Map";
 
 
@@ -7,6 +8,7 @@ const Contact = () => {
         <div>
             <Map/>
             <ContactDetails/>
+            <ContactForm/>
         </div>
     );
 };
