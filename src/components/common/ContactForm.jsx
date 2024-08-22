@@ -15,9 +15,9 @@ const ContactForm = () => {
         <p className=" space-x-3 uppercase mt-3 tracking-widest">
           Contact us anytime
         </p>
-        <p className="mt-5">
+        <p className="mt-5 m-2">
           Please contact us before booking to ensure availability. We’re
-          available anytime <br /> for any questions or assistance you may need.
+          available <br />  anytime for any questions or assistance you may need.
         </p>
       </div>
       <section className="py-6 mt-20 dark:bg-gray-100 dark:text-gray-900">
