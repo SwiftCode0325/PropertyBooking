@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Property", href: "/property" },
@@ -12,7 +13,15 @@ const navigation = [
 
 
 
+
+
 export default function Navbar() {
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Property", href: "/property" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Contact Us", href: "/contact" },
+  ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (

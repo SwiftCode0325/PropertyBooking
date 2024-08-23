@@ -5,7 +5,11 @@ import Home from "../pages/Home/Home";
 
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import Properties from "../pages/Properties/Properties";
+
 import Login from "../pages/Login/Login";
+
+import Contact from "../pages/Contact/Contact";
+
 
 
 export const router = createBrowserRouter([
@@ -33,8 +37,13 @@ export const router = createBrowserRouter([
         element: <About></About>,
       },
       {
+
         path: "/login",
         element: <Login></Login>
+
+        path: "contact",
+        element: <Contact></Contact>,
+
       },
 
     ]

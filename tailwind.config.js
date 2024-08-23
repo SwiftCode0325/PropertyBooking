@@ -8,6 +8,9 @@ export default {
         secondary: '#EBF4F6',
         accent: '#5994D4',
       },
+      fontFamily: {
+        montSerrat: '"Montserrat", sans-serif'
+      }
     },
   },
   plugins: [],

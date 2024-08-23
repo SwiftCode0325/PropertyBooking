@@ -5,7 +5,9 @@ import "./index.css";
 import { router } from "./routes/PublicRoutes.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <div className="font-montSerrat">
+     <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
+  </div>
 );
