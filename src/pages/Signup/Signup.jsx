@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div className="bg-[#ebf4f6] py-8 min-h-screen flex justify-center items-center">
-      <div className="flex flex-col-reverse lg:flex-row w-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg">
+    <div className="bg-white py-8 min-h-screen flex justify-center items-center">
+      <div className="flex flex-col-reverse lg:flex-row w-full max-w-4xl mx-auto overflow-hidden bg-[#ebf4f6] rounded-lg shadow-lg">
         
         {/* Left Side: Content */}
         <div className="w-full lg:w-7/12 px-6 py-6 md:px-8">
