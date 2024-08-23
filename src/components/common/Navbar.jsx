@@ -9,6 +9,7 @@ const navigation = [
   { name: "Property", href: "/property" },
   { name: "About Us", href: "/about-us" },
   { name: "Contact", href: "/contact" },
+  { name: "Login", href: "/login" },
 ];
 
 
@@ -21,6 +22,7 @@ export default function Navbar() {
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
+    { name: "Login", href: "/login" },
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -112,12 +114,12 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
+                <Link
+                  to='/login'
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"

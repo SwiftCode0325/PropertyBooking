@@ -9,6 +9,7 @@ import Properties from "../pages/Properties/Properties";
 import Login from "../pages/Login/Login";
 
 import Contact from "../pages/Contact/Contact";
+import Signup from "../pages/Signup/Signup";
 
 
 
@@ -37,10 +38,12 @@ export const router = createBrowserRouter([
         element: <About></About>,
       },
       {
-
         path: "/login",
         element: <Login></Login>
-
+      },{
+        path: "/signup",
+        element: <Signup></Signup>
+      },{
         path: "contact",
         element: <Contact></Contact>,
 
