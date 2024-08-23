@@ -104,7 +104,7 @@ const ContactForm = () => {
             </label>
             <button
               type="button"
-              className="self-center px-8 py-3 text-lg font-semibold text-white bg-[#01204E] rounded-md shadow focus:outline-none focus:ring-2 focus:ring-[#EBF4F6] hover:bg-[#224e91] hover:text-white"
+              className="self-start px-8 py-3 text-lg font-semibold text-white bg-[#01204E] rounded-md shadow focus:outline-none focus:ring-2 focus:ring-[#EBF4F6] hover:bg-[#224e91] hover:text-white"
             >
               Submit
             </button>
