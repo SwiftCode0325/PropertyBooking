@@ -11,7 +11,7 @@ const Login = () => {
           </div>
 
           <p className="mt-3 text-xl text-left text-gray-700 dark:text-gray-200">
-            Welcome back! User 
+            Welcome back! User
           </p>
           <div className="mt-4">
             <label
@@ -86,7 +86,7 @@ const Login = () => {
             </span>
           </a>
           <p className="text-gray-500 text-sm text-center py-3">
-            Don't have an account?{" "}
+            Dont have an account?{" "}
             <Link to="/register">
               <span className="font-bold underline">Register</span>{" "}
             </Link>{" "}
