@@ -1,0 +1,53 @@
+[
+    {
+      "title": "Luxury Suite",
+      "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/485465176.jpg?k=7b2ca76d1e800106c21bf461cfb4b7937ef50c14894015c7ea3af9805dca9522&o=&hp=1",
+      "location": "Dhaka"
+    },
+    {
+      "title": "Beachfront Bungalow",
+      "image": "https://lh3.googleusercontent.com/proxy/aM38hWUiXYCfA4zBnChN4xnXzF9jRyvpChZtWjiUpuQmD1DD8PFBYO4vqiX73GCs8f0ZyQ8OvA3C2y3Log9nLqjkf0wWOc2CzsFlxp1kBWdsyt01Pm73xfCygdkzgs8ulEyqcmeSI1pVNjQb",
+      "location": "Cox's Bazar"
+    },
+    {
+      "title": "Hilltop Cabin",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqNwfTA_zP4RJpDE9QxMFWWk59hsj8Phk5tA&s",
+      "location": "Bandarban"
+    },
+    {
+      "title": "Riverside Cottage",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRADLfd7LINW8i8Sxb37Gi_zoSxLSjm8rGPjQ&s",
+      "location": "Sundarbans"
+    },
+    {
+      "title": "City View Room",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/15/21/e4/dc/six-seasons-hotel.jpg",
+      "location": "Chittagong"
+    },
+    {
+      "title": "Forest Retreat",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCfG-4DWTv84i9zr6E3Hfz-t602hzEvADqVg&s",
+      "location": "Sylhet"
+    },
+    {
+      "title": "Heritage Suite",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtICPQNXN9Yb4x77O_5sOrPH5rU0oIteolUg&s",
+      "location": "Rajshahi"
+    },
+    {
+      "title": "Mountain View Villa",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhP0UJfotbm8qkzdH0Z_VsC39ACvfqTmcDXA&s",
+      "location": "Rangamati"
+    },
+    {
+      "title": "Lakeside Room",
+      "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/485465176.jpg?k=7b2ca76d1e800106c21bf461cfb4b7937ef50c14894015c7ea3af9805dca9522&o=&hp=1",
+      "location": "Kaptai Lake"
+    },
+    {
+      "title": "Tea Garden Cottage",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/16/4b/b3/ed/jangalbari-tea-state.jpgg",
+      "location": "Srimangal"
+    }
+  ]
+  
