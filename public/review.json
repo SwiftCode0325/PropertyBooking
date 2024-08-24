@@ -1,0 +1,73 @@
+[
+    {
+      "name": "Sajib Hossen",
+      "email": "sajib.hossen@example.com",
+      "ratings": 5,
+      "image": "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "review_description": "Amazing service! The team was very professional and the booking process was seamless. Highly recommend!"
+    },
+    {
+      "name": "Sabbir Hossen",
+      "email": "sabbir.smith@example.com",
+      "ratings": 4,
+      "image": "https://media.licdn.com/dms/image/D5603AQHF7qp6BgJR6Q/profile-displayphoto-shrink_200_200/0/1701442654297?e=2147483647&v=beta&t=jzVIA65rtyGgK7eNzZ7tOT2lSMF5Y7kRXz2b86dBOWg",
+      "review_description": "Great experience overall. The only downside was the slight delay in response time, but everything else was perfect!"
+    },
+    {
+      "name": "Sahon Hossen",
+      "email": "sahon.hossen@example.com",
+      "ratings": 3,
+      "image": "https://media.licdn.com/dms/image/D5603AQGR_v2TDR8gyA/profile-displayphoto-shrink_200_200/0/1701964376123?e=2147483647&v=beta&t=ploUtA2EGnDHi9-wzvEToG3E3yF258l57patcnjP8AM",
+      "review_description": "The service was okay, but I expected more personalized attention. The facilities were good though."
+    },
+    {
+      "name": "Nazneen Lipi",
+      "email": "nazneen.lipi@example.com",
+      "ratings": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5g5qTZPMb1PK_4fWUDT0fN-wZ4Xg8o1byw&s",
+      "review_description": "Fantastic experience! The staff was friendly, and the environment was welcoming. I will definitely come back."
+    },
+    {
+      "name": "Pranto Debnath",
+      "email": "pranto.debnath@example.com",
+      "ratings": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqRDdrNEXNvGtveIFUUBXn0zMA-uVlm9PFxw&s",
+      "review_description": "Very good service, but there is room for improvement in the booking system. Otherwise, a solid experience."
+    },
+    {
+      "name": "David Lee",
+      "email": "david.lee@example.com",
+      "ratings": 2,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQreGyxM6EjQIC4b88qnc_oCkw8xu38FZw80Q&s",
+      "review_description": "I was disappointed with the service. The staff seemed overwhelmed, and my requests were not addressed promptly."
+    },
+    {
+      "name": "Linda Martinez",
+      "email": "linda.martinez@example.com",
+      "ratings": 5,
+      "image": "https://bay.cdn.bkat.io/cust/bay_emerge/images/agents/6142901090/6142901090_20231201122048743.jpg",
+      "review_description": "Absolutely loved the experience! Everything was top-notch, from the customer service to the amenities."
+    },
+    {
+      "name": "James Wilson",
+      "email": "james.wilson@example.com",
+      "ratings": 3,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVlsvHlDMyeNVg2OJlVRBYppDXuhUVGwl_iQ&s",
+      "review_description": "It was an average experience. Not bad, but not exceptional either. Would consider trying again in the future."
+    },
+    {
+      "name": "Patricia Anderson",
+      "email": "patricia.anderson@example.com",
+      "ratings": 4,
+      "image": "https://www.southcountyart.org/uploads/1/1/8/4/118491250/published/2023-amii-go-figure-patty-5387.jpg?1695996910",
+      "review_description": "Good service, friendly staff, and a pleasant environment. I enjoyed my time but think there could be more variety."
+    },
+    {
+      "name": "Christopher Miller",
+      "email": "christopher.miller@example.com",
+      "ratings": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5Z0v1ffQ5wOo0c66b2Pd2qbGWAt4cKFfTQ&s",
+      "review_description": "Exceptional service! Every detail was taken care of, and the staff went above and beyond to ensure our satisfaction."
+    }
+  ]
+  
