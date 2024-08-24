@@ -15,7 +15,11 @@
     "@heroicons/react": "^2.1.5",
     "@react-google-maps/api": "^2.19.3",
     "aos": "^2.3.4",
+
     "axios": "^1.7.5",
+
+    "firebase": "^10.13.0",
+
     "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "lucide-react": "^0.427.0",
@@ -26,7 +30,8 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.26.0",
     "sort-by": "^1.2.0",
-    "swiper": "^11.1.9"
+    "swiper": "^11.1.9",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
