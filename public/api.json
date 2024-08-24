@@ -7,6 +7,10 @@
     "rate": "$2,500/month",
     "area": "3500 sqft",
     "beds": 4,
+    "dayning": 1,
+    "belkoni": 1,
+    "floor": "tiles",
+    "kitchen": 1,
     "baths": 3,
     "location": "New York, NY"
   },
@@ -17,7 +21,11 @@
     "description": "Spacious apartment with city views.",
     "rate": "$1,800/month",
     "area": "2000 sqft",
+    "floor": "tiles",
     "beds": 3,
+    "dayning": 1,
+    "belkoni": 2,
+    "kitchen": 1,
     "baths": 2,
     "location": "Los Angeles, CA"
   },
@@ -29,6 +37,10 @@
     "rate": "$1,  800/month",
     "area": "2000 sqft",
     "beds": 3,
+    "floor": "non-tiles",
+    "dayning": 1,
+    "kitchen": 1,
+    "belkoni": 1,
     "baths": 2,
     "location": "Los Angeles, CA"
   },
@@ -40,6 +52,10 @@
     "rate": "$1,    800/month",
     "area": "2000 sqft",
     "beds": 3,
+    "floor": "tiles",
+    "dayning": 1,
+    "kitchen": 1,
+    "belkoni": 2,
     "baths": 2,
     "location": "Los Angeles, CA"
   },
@@ -50,7 +66,11 @@
     "description": "Spacious apartment with city views.",
     "rate": "$1,  800/month",
     "area": "2000 sqft",
+    "floor": "non-tiles",
     "beds": 3,
+    "dayning": 1,
+    "belkoni": 2,
+    "kitchen": 1,
     "baths": 2,
     "location": "Los Angeles, CA"
   },
@@ -61,7 +81,11 @@
     "description": "Spacious apartment with city views.",
     "rate": "$1,   800/month",
     "area": "2000 sqft",
+    "floor": "non-tiles",
     "beds": 3,
+    "belkoni": 1,
+    "dayning": 1,
+    "kitchen": 1,
     "baths": 2,
     "location": "Los Angeles, CA"
   }
