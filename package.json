@@ -15,15 +15,7 @@
     "@heroicons/react": "^2.1.5",
     "@react-google-maps/api": "^2.19.3",
     "aos": "^2.3.4",
-<<<<<<< HEAD
     "axios": "^1.7.5",
-=======
-
-    "axios": "^1.7.5",
-
-    "firebase": "^10.13.0",
-
->>>>>>> e341118abc568e172cb8eb567ca0fe647842dc8d
     "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "lucide-react": "^0.427.0",

@@ -40,9 +40,7 @@ const Review = () => {
             disableOnInteraction: false,
           }}
           spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
+         
           modules={[Pagination, Autoplay]}
           className="mySwiper"
           breakpoints={{
