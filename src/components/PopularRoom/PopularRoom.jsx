@@ -32,14 +32,14 @@ const PopularRoom = () => {
         description={`Explore our most popular rooms, chosen for their comfort, style, and amenities. <br/> Discover why guests love staying in these well-appointed spaces!`}
       />
       <div className="mt-24">
-        {/* Show loader while data is being fetched */}
+      
         {loading ? (
           <div className="flex justify-center items-center">
            <Loader/>
           </div>
         ) : (
           <Swiper
-            key={popularRooms.length} // Reinitialize Swiper when data changes
+            key={popularRooms.length} 
             autoplay={{
               delay: 1000,
               disableOnInteraction: false,
