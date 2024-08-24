@@ -31,8 +31,8 @@ const Review = () => {
         <TitleHome title={'Testimonials'} description={'Discover how Room Lagbea has made a difference for our users. Their feedback  <br/> showcases the seamless process and exceptional service we have provided.'}/>
       </div>
       <div
-        data-aos="fade-down-right"
-        className=" mt-24 mb-24 lg:mb-48 md:mb-48"
+       data-aos="zoom-in-down"
+        className=" mt-24 mb-24 lg:mb-48 md:mb-48 overflow-hidden"
       >
         <Swiper
           autoplay={{

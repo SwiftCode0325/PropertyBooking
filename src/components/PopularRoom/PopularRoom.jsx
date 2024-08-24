@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 import PopularRoomCard from "../common/PopularRoomCard";
 import Loader from "../common/Loader";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const PopularRoom = () => {
   const [popularRooms, setPopularRooms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,15 +24,21 @@ const PopularRoom = () => {
         setLoading(false); 
       });
   }, []);
-
+  useEffect( () => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    })
+  },[])
   return (
     <div className="mt-24 mb-24 lg:mb-48 md:mb-48 container mx-auto">
       {/* Title and description */}
       <TitleHome
+      
         title={"Most Popular Rooms"}
         description={`Explore our most popular rooms, chosen for their comfort, style, and amenities. <br/> Discover why guests love staying in these well-appointed spaces!`}
       />
-      <div className="mt-24">
+      <div  data-aos="zoom-in-down" className="mt-24">
       
         {loading ? (
           <div className="flex justify-center items-center">

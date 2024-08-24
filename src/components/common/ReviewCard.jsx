@@ -3,7 +3,7 @@
 const ReviewCard = ({ review }) => {
     const {name,email,ratings,image, review_description} = review;
   return (
-    <div className="max-w-sm p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+    <div className="max-w-sm p-4 border bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
       {/* Customer Image */}
       <img
         src={image}

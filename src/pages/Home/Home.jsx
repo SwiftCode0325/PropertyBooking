@@ -4,12 +4,13 @@ import Property from "../../components/property/Property";
 import Review from "../../components/Review/Review";
 
 const Home = () => {
-  return <div>
+  return (
+  <div>
     <Banner></Banner>
     <Property></Property>
     <PopularRoom/>
     <Review/>
-  </div>;
+  </div>);
 };
 
 export default Home;
