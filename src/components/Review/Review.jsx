@@ -19,7 +19,7 @@ const Review = () => {
   }, []);
 
   return (
-    <div className="mt-48 mb-80">
+    <div className="mt-24 mb-24 lg:mb-64 md:mb-64">
       <Swiper
         autoplay={{
           delay: 1500,
