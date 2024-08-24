@@ -102,6 +102,7 @@ const ContactForm = () => {
                 className="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#EBF4F6] dark:bg-gray-200"
               ></textarea>
             </label>
+           
             <button
               type="button"
               className="self-start px-8 py-3 text-lg font-semibold text-white bg-[#01204E] rounded-md shadow focus:outline-none focus:ring-2 focus:ring-[#EBF4F6] hover:bg-[#EBF4F6] hover:text-black"
