@@ -35,19 +35,7 @@ const Banner = () => {
   };
 
   return (
-    <>
-      {/* <div className="flex justify-end mt-10 mb-2 px-4 lg:px-10">
-        <div className="relative w-full max-w-sm">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full pl-12 pr-4 py-3 bg-white text-gray-900 rounded-md shadow-md border-none focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out"
-          />
-          <div className="absolute inset-y-0 left-4 flex items-center text-2xl">
-            <GoSearch />
-          </div>
-        </div>
-      </div> */}
+    <div className='container mx-auto'>
 
       <Swiper
         scrollbar={{
@@ -62,12 +50,12 @@ const Banner = () => {
         onSlideChange={handleSlideChange}
       >
         <SwiperSlide>
-          <div className="relative h-full w-full">
-            <img className="w-full h-[820px] object-cover" src={banner1} alt="Banner One" />
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
+            <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner1} alt="Banner One" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
               <div
-                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md"
+                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
               >
                 <h2 className="font-medium uppercase">
@@ -77,15 +65,15 @@ const Banner = () => {
               </div>
 
               <div
-                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2"
+                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2 transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md">
+                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out">
                   $800 <span className="text-lg md:text-xl lg:text-2xl font-light">/month</span>
                 </h2>
                 <div
-                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2"
+                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2 transition-all duration-500 ease-in-out"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -97,12 +85,12 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full">
-            <img className="w-full h-[820px] object-cover" src={banner2} alt="Banner One" />
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
+            <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner2} alt="Banner One" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
               <div
-                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md"
+                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
               >
                 <h2 className="font-medium uppercase">
@@ -112,15 +100,15 @@ const Banner = () => {
               </div>
 
               <div
-                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2"
+                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2 transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md">
+                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out">
                   $800 <span className="text-lg md:text-xl lg:text-2xl font-light">/month</span>
                 </h2>
                 <div
-                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2"
+                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2 transition-all duration-500 ease-in-out"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -132,12 +120,12 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full">
-            <img className="w-full h-[820px] object-cover" src={banner3} alt="Banner One" />
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
+            <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner3} alt="Banner One" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
               <div
-                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md"
+                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
               >
                 <h2 className="font-medium uppercase">
@@ -147,15 +135,15 @@ const Banner = () => {
               </div>
 
               <div
-                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2"
+                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2 transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md">
+                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out">
                   $800 <span className="text-lg md:text-xl lg:text-2xl font-light">/month</span>
                 </h2>
                 <div
-                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2"
+                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2 transition-all duration-500 ease-in-out"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -167,12 +155,12 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full">
-            <img className="w-full h-[820px] object-cover" src={banner4} alt="Banner One" />
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
+            <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner4} alt="Banner One" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
               <div
-                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md"
+                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
               >
                 <h2 className="font-medium uppercase">
@@ -182,15 +170,15 @@ const Banner = () => {
               </div>
 
               <div
-                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2"
+                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2 transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md">
+                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out">
                   $800 <span className="text-lg md:text-xl lg:text-2xl font-light">/month</span>
                 </h2>
                 <div
-                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2"
+                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2 transition-all duration-500 ease-in-out"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -198,17 +186,16 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full">
-            <img className="w-full h-[820px] object-cover" src={banner5} alt="Banner One" />
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
+            <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner5} alt="Banner One" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
               <div
-                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md"
+                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
               >
                 <h2 className="font-medium uppercase">
@@ -218,15 +205,15 @@ const Banner = () => {
               </div>
 
               <div
-                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2"
+                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2 transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md">
+                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out">
                   $800 <span className="text-lg md:text-xl lg:text-2xl font-light">/month</span>
                 </h2>
                 <div
-                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2"
+                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2 transition-all duration-500 ease-in-out"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -234,17 +221,16 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full">
-            <img className="w-full h-[820px] object-cover" src={banner6} alt="Banner One" />
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
+            <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner6} alt="Banner One" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
               <div
-                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md"
+                className="ml-4 md:ml-20 lg:ml-80 mt-[180px] md:mt-[220px] lg:mt-[280px] text-white font-bold text-xl md:text-2xl lg:text-4xl inline-block bg-[#01208F] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
               >
                 <h2 className="font-medium uppercase">
@@ -254,15 +240,15 @@ const Banner = () => {
               </div>
 
               <div
-                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2"
+                className="flex text-2xl md:text-3xl lg:text-4xl items-center -mt-2 ml-4 md:ml-20 lg:ml-80 md:mt-10 lg:-mt-2 transition-all duration-500 ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md">
+                <h2 className="text-white font-bold inline-block bg-[#5994FF] px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8 rounded-md transition-all duration-500 ease-in-out">
                   $800 <span className="text-lg md:text-xl lg:text-2xl font-light">/month</span>
                 </h2>
                 <div
-                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2"
+                  className="bg-[#EBF4F6] py-6 md:py-6 lg:py-9 px-6 md:px-8 lg:px-10 rounded-md -ml-2 transition-all duration-500 ease-in-out"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -270,13 +256,12 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </SwiperSlide>
 
       </Swiper>
 
-    </>
+    </div>
   );
 };
 

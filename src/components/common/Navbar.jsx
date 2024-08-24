@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Property", href: "/property" },
