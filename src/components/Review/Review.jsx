@@ -3,10 +3,16 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../common/ReviewCard";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Review = () => {
   const [reviews, setReviews] = useState([]);
-
+  useEffect(() => {
+    AOS.init({
+        duration: 1000,
+        once: true,
+    })
+},[])
   useEffect(() => {
     axios
       .get("review.json")
@@ -19,7 +25,7 @@ const Review = () => {
   }, []);
 
   return (
-    <div className="mt-24 mb-24 lg:mb-64 md:mb-64">
+    <div data-aos="fade-down-right" className=" mt-24 mb-24 lg:mb-48 md:mb-48">
       <Swiper
         autoplay={{
           delay: 1500,
