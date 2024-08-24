@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import TitleHome from "../common/TitleHome";
 const Review = () => {
+  // state
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     AOS.init({
