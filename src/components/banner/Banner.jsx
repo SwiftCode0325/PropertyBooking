@@ -50,7 +50,7 @@ const Banner = () => {
         onSlideChange={handleSlideChange}
       >
         <SwiperSlide>
-          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out"> {/* Added transition-all, duration-500, and ease-in-out */}
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
             <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner1} alt="Banner One" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
@@ -85,7 +85,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out"> {/* Added transition-all, duration-500, and ease-in-out */}
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
             <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner2} alt="Banner One" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
@@ -120,7 +120,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out"> {/* Added transition-all, duration-500, and ease-in-out */}
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
             <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner3} alt="Banner One" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
@@ -155,7 +155,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out"> {/* Added transition-all, duration-500, and ease-in-out */}
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
             <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner4} alt="Banner One" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
@@ -190,7 +190,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out"> {/* Added transition-all, duration-500, and ease-in-out */}
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
             <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner5} alt="Banner One" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
@@ -225,7 +225,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out"> {/* Added transition-all, duration-500, and ease-in-out */}
+          <div className="relative h-full w-full rounded-lg overflow-hidden transition-all duration-500 ease-in-out">
             <img className="w-full h-[720px] object-cover transition-all duration-500 ease-in-out" src={banner6} alt="Banner One" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75 rounded-lg transition-all duration-500 ease-in-out">
