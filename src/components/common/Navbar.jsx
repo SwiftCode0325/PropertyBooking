@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Property", href: "/property" },
-  { name: "About Us", href: "/about-us" },
-  { name: "Contact", href: "/contact" },
-];
+// const navigation = [
+//   { name: "Home", href: "/" },
+//   { name: "Property", href: "/property" },
+//   { name: "About Us", href: "/about-us" },
+//   { name: "Contact", href: "/contact" },
+// ];
 
 
 
