@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Property", href: "/property" },
@@ -11,6 +12,7 @@ const navigation = [
   { name: "Contact", href: "/contact" },
   { name: "Login", href: "/login" },
 ];
+
 
 
 
