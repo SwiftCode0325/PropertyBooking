@@ -1,6 +1,52 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { app } from "../../firebase.config";
+import { getAuth } from "firebase/auth";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { FaRegEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const { signIn, googleLogin } = useAuth();
+  const auth = getAuth(app);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [showEye, setShowEye] = useState(false);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+
+    try {
+      await signIn(email, password);
+      toast.success("Successfully logged in");
+      navigate(location?.state?.from || "/");
+    } catch (error) {
+      toast.error("Sign in failed");
+      console.error(error);
+    }
+  };
+
+  const handleSocialLogin = async (socialProvider) => {
+    try {
+      const result = await socialProvider();
+      if (result.user) {
+        toast.success("Successfully logged in");
+        navigate(location?.state?.from || "/");
+      }
+    } catch (error) {
+      toast.error("Sign in failed");
+      console.error(error);
+    }
+  };
+
   return (
     <div className="bg-white py-8 min-h-screen flex justify-center items-center">
       <div className="flex flex-col-reverse lg:flex-row w-full max-w-4xl mx-auto overflow-hidden bg-[#ebf4f6] rounded-lg shadow-lg">
@@ -13,53 +59,87 @@ const Login = () => {
           </div>
 
           <p className="mt-2 text-lg md:text-xl text-left text-gray-700">
-            Welcome back! User
+            Welcome back!
           </p>
 
-           {/* Email Input */}
-          <div className="mt-4">
-            <label
-              className="block mb-2 text-sm font-medium text-[#01204e]"
-              htmlFor="SignupEmailAddress"
-            >
-              Email Address
-            </label>
-            <input
-              id="SignupEmailAddress"
-              className="block w-full px-4 py-2 text-black bg-[#F5F5F5] border border-gray-500 rounded-sm transition-colors duration-300 focus:bg-[#01204e] focus:text-white focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
-              type="email"
-            />
-          </div>
-
-          {/* Password Input */}
-          <div className="mt-4">
-            <div className="flex justify-between">
+          {/* Form Section */}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Email Input */}
+            <div className="mt-4">
               <label
                 className="block mb-2 text-sm font-medium text-[#01204e]"
-                htmlFor="SignupPassword"
+                htmlFor="SignupEmailAddress"
               >
-                Password
+                Email Address
               </label>
-              <Link to="/forgot-password" className="text-xs text-gray-500 hover:underline">
-                Forgot Password?
-              </Link>
+              <input
+                id="SignupEmailAddress"
+                className="block w-full px-4 py-2 text-black bg-[#F5F5F5] border border-gray-500 rounded-sm transition-colors duration-300 focus:bg-[#01204e] focus:text-white focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                type="email"
+                {...register("email", { required: "Email is required" })}
+              />
+              {errors.email && (
+                <span className="text-red-500 text-sm">
+                  {errors.email.message}
+                </span>
+              )}
             </div>
 
-            <input
-              id="SignupPassword"
-              className="block w-full px-4 py-2 text-black bg-[#F5F5F5] border border-gray-500 rounded-sm transition-colors duration-300 focus:bg-[#01204e] focus:text-white focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
-              type="password"
-            />
-          </div>
+            {/* Password Input */}
+            <div className="mt-4">
+              <div className="flex justify-between">
+                <label
+                  className="block mb-2 text-sm font-medium text-[#01204e]"
+                  htmlFor="SignupPassword"
+                >
+                  Password
+                </label>
+                <Link
+                  to="/forgot-password"
+                  className="text-xs text-gray-500 hover:underline"
+                >
+                  Forgot Password?
+                </Link>
+              </div>
 
-          <div className="mt-6">
-            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#01204E] rounded-3xl hover:bg-sky-600 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-              Sign In
-            </button>
-          </div>
+              <div className="relative">
+                <input
+                  id="SignupPassword"
+                  className="block w-full px-4 py-2 text-black bg-[#F5F5F5] border border-gray-500 rounded-sm transition-colors duration-300 focus:bg-[#01204e] focus:text-white focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  type={showEye ? "text" : "password"}
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                  onClick={() => setShowEye(!showEye)}
+                >
+                  {showEye ? <FaRegEye /> : <FaEyeSlash />}
+                </button>
+              </div>
+              {errors.password && (
+                <span className="text-red-500 text-sm">
+                  {errors.password.message}
+                </span>
+              )}
+            </div>
+
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#01204E] rounded-3xl hover:bg-sky-600 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+
+          {/* Google Login Button */}
 
           <a
-            href="#"
+            onClick={() => handleSocialLogin(googleLogin)}
             className="flex items-center justify-center bg-white mt-4 text-gray-700 transition-colors duration-300 transform border border-gray-500 rounded-3xl hover:bg-gray-50"
           >
             <div className="px-4 py-2">
@@ -87,22 +167,28 @@ const Login = () => {
             </span>
           </a>
 
-          <p className="text-gray-500 text-sm text-center py-3">
-            Don’t have an account?{" "}
-            <Link to="/signup">
-              <span className="font-bold underline">SignUp</span>
-            </Link>
-          </p>
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-500">
+              Don't have an account?{" "}
+              <Link
+                to="/signup"
+                className="font-medium text-[#01204e] hover:underline"
+              >
+                SignUp
+              </Link>
+            </p>
+          </div>
         </div>
 
-        {/* Promotional Section */}
-        <div className="bg-[#01204e] py-10 px-5 flex items-center justify-center rounded-md lg:w-5/12">
+        {/* Image Section */}
+        <div className="bg-[#01204e] py-12 px-5 flex items-center justify-center rounded-md lg:w-5/12">
           <div>
             <h1 className="font-bold text-2xl lg:text-3xl text-white text-center">
               Start Your Journey with Us
             </h1>
             <p className="text-md font-light mt-2 text-white text-center">
-              Discover the world's best community, freelancer services, and business opportunities.
+              Discover the world's best community, freelancer services, and
+              business opportunities.
             </p>
           </div>
         </div>
