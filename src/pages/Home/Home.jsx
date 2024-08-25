@@ -5,13 +5,20 @@ import Review from "../../components/Review/Review";
 import SearchField from "../../components/SearchField/SearchField";
 
 const Home = () => {
-  return <div>
+  return (
+  <div>
     <Banner></Banner>
     <SearchField></SearchField>
     <Property></Property>
+
+    <PopularRoom/>
+    <Review/>
+  </div>);
+
     <PopularRoom />
     <Review />
   </div>;
+
 };
 
 export default Home;

@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import TitleHome from "../common/TitleHome";
 const Review = () => {
+  // state
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     AOS.init({
@@ -31,8 +32,8 @@ const Review = () => {
         <TitleHome title={'Testimonials'} description={'Discover how Room Lagbea has made a difference for our users. Their feedback  <br/> showcases the seamless process and exceptional service we have provided.'}/>
       </div>
       <div
-        data-aos="fade-down-right"
-        className=" mt-24 mb-24 lg:mb-48 md:mb-48"
+       data-aos="zoom-in-down"
+        className=" mt-24 mb-24 lg:mb-48 md:mb-48 overflow-hidden"
       >
         <Swiper
           autoplay={{
@@ -40,9 +41,7 @@ const Review = () => {
             disableOnInteraction: false,
           }}
           spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
+         
           modules={[Pagination, Autoplay]}
           className="mySwiper"
           breakpoints={{
