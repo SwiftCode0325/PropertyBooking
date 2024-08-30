@@ -11,7 +11,7 @@ const navigation = [
   { name: "Property", href: "/property" },
   { name: "About Us", href: "/about-us" },
   { name: "Contact", href: "/contact" },
-  { name: "Login", href: "/login" },
+ 
 ];
 
 export default function Navbar() {
@@ -20,7 +20,7 @@ export default function Navbar() {
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Login", href: "/login" },
+    
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
