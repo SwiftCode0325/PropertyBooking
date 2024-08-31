@@ -28,7 +28,7 @@ const Navbar = () => {
         {/* Drawer button to open the sidebar */}
         <label
           htmlFor="my-drawer"
-          className="p-2 drawer-button"
+          className="p-2 drawer-button mt-4"
           onClick={toggleDrawer}
         >
           <svg
@@ -63,7 +63,7 @@ const Navbar = () => {
        <h1 className='text-red'>X</h1>
         </label> */}
 
-        <ul className="menu bg-[#01204E] text-white min-h-full w-48 p-4">
+        <ul className="menu bg-[#01204E] text-white min-h-full w-[150px] pt-3">
           {/* Sidebar content here */}
 
           <li className="rounded-sm">

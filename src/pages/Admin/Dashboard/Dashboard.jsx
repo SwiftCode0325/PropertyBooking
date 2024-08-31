@@ -7,12 +7,14 @@ import RevenueChart from "./../../../components/Charts/RevenueChart";
 import { BsFillHouseCheckFill } from "react-icons/bs";
 import RoomChart from "../../../components/Charts/RoomChart";
 import VisitorChart from "../../../components/Charts/VisitorChart";
+import RevenueOverview from "../../../components/Charts/RevenueOverview";
 
 const Dashboard = () => {
   return (
-    <div className="h-screen">
+    <div className="h-full">
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <div className="mt-10">
+        {/* card 04 */}
         <div className="grid grid-cols md:grid-cols-4 lg:grid-cols-4 gap-5">
           {/* card 1 */}
           <div className="rounded-lg bg-[#DFE5FA] p-5 text-[16px] font-bold ">
@@ -79,6 +81,13 @@ const Dashboard = () => {
               <RoomChart />
             </>
           </div>
+        </div>
+        {/* card end 04 */}
+        <div className="mt-12">
+            <div>
+                <h1 className="text-4xl font-bold mb-3">Revenue Overview</h1>
+            </div>
+            <RevenueOverview/>
         </div>
       </div>
     </div>
