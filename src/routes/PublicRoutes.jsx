@@ -13,6 +13,11 @@ import Signup from "../pages/Signup/Signup";
 import AdminRoutes from "./AdminRoutes";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import Sidebar from "../components/admin/Sidebar";
+import Booking from "../pages/Admin/Booking/Booking";
+import PaymentHistory from "../pages/Admin/PaymentHistory/PaymentHistory";
+import ManageUser from "../pages/Admin/ManageUser/ManageUser";
+import AddRoom from "../pages/Admin/AddRoom/AddRoom";
+import ManageRoom from "../pages/Admin/ManageRoom/ManageRoom";
 
 export const router = createBrowserRouter([
   {
@@ -60,8 +65,24 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "sidebar",
-        element: <Sidebar />,
+        path: "booking",
+        element: <Booking />,
+      },
+      {
+        path: "payments",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "users",
+        element: <ManageUser />,
+      },
+      {
+        path: "addroom",
+        element: <AddRoom />,
+      },
+      {
+        path: "managerooms",
+        element: <ManageRoom />,
       },
     ],
   },
