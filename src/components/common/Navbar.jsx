@@ -6,13 +6,6 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Property", href: "/property" },
-  { name: "About Us", href: "/about-us" },
-  { name: "Contact", href: "/contact" },
- 
-];
 
 export default function Navbar() {
   const navigation = [
@@ -20,6 +13,7 @@ export default function Navbar() {
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
+    { name: "Dashboard", href: "/admin/dashboard" },
     
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
