@@ -5,17 +5,16 @@ import { IoHomeSharp } from "react-icons/io5";
 import { MdPayment } from "react-icons/md";
 
 const Navbar = () => {
-// State to manage the drawer open/close
-const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  // State to manage the drawer open/close
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-// Function to handle drawer toggle
-const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
+  // Function to handle drawer toggle
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
-// Function to handle link click and close the drawer
-const handleLinkClick = () => {
-  setIsDrawerOpen(false);
-};
-
+  // Function to handle link click and close the drawer
+  const handleLinkClick = () => {
+    setIsDrawerOpen(false);
+  };
 
   const links = (
     <>
@@ -25,7 +24,7 @@ const handleLinkClick = () => {
           className="flex items-center p-2 space-x-3 rounded-md"
           onClick={handleLinkClick}
         >
-         <IoHomeSharp className="text-3xl"/>
+          <IoHomeSharp className="text-3xl" />
 
           <span>Dashboard</span>
         </Link>
@@ -36,7 +35,7 @@ const handleLinkClick = () => {
           className="flex items-center p-2 space-x-3 rounded-md"
           onClick={handleLinkClick}
         >
-         <TbBrandBooking className="text-3xl"/>
+          <TbBrandBooking className="text-3xl" />
 
           <span>Booking</span>
         </Link>
@@ -47,14 +46,12 @@ const handleLinkClick = () => {
           className="flex items-center p-2 space-x-3 rounded-md"
           onClick={handleLinkClick}
         >
-         <MdPayment  className="text-3xl"/>
+          <MdPayment className="text-3xl" />
           <span>Payments</span>
         </Link>
       </li>
     </>
   );
-
-  
 
   return (
     <div className={`drawer drawer-start ${isDrawerOpen ? "drawer-open" : ""}`}>

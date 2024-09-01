@@ -8,6 +8,7 @@ import { BsFillHouseCheckFill } from "react-icons/bs";
 import RoomChart from "../../../components/Charts/RoomChart";
 import VisitorChart from "../../../components/Charts/VisitorChart";
 import RevenueOverview from "../../../components/Charts/RevenueOverview";
+import MapChart from "../../../components/Charts/TopCountryMap";
 
 const Dashboard = () => {
   return (
@@ -83,11 +84,15 @@ const Dashboard = () => {
           </div>
         </div>
         {/* card end 04 */}
-        <div className="mt-12">
-            <div>
-                <h1 className="text-4xl font-bold mb-3">Revenue Overview</h1>
-            </div>
-            <RevenueOverview/>
+        <div className="mt-20 grid grid-cols md:grid-cols-2 lg:grid-cols-2 gap-5">
+          <div>
+            <h1 className="text-2xl font-bold mb-6">Revenue Overview</h1>
+            <RevenueOverview />
+          </div>
+          <div className="ms-5">
+            <h1 className="text-2xl font-bold mb-6">Top Revenue Country</h1>
+            <MapChart />
+          </div>
         </div>
       </div>
     </div>
