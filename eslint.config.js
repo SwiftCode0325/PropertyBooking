@@ -32,7 +32,7 @@ export default [
       "react/prop-types": 0,
       'react-refresh/only-export-components': [
         'warn',
-        { allowConstantExport: true },
+        { allowConstantExport: true, node: true },
       ],
     },
   },

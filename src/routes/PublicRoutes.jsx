@@ -10,8 +10,14 @@ import Login from "../pages/Login/Login";
 
 import Contact from "../pages/Contact/Contact";
 import Signup from "../pages/Signup/Signup";
-
-
+import AdminRoutes from "./AdminRoutes";
+import Dashboard from "../pages/Admin/Dashboard/Dashboard";
+import Sidebar from "../components/admin/Sidebar";
+import Booking from "../pages/Admin/Booking/Booking";
+import PaymentHistory from "../pages/Admin/PaymentHistory/PaymentHistory";
+import ManageUser from "../pages/Admin/ManageUser/ManageUser";
+import AddRoom from "../pages/Admin/AddRoom/AddRoom";
+import ManageRoom from "../pages/Admin/ManageRoom/ManageRoom";
 
 export const router = createBrowserRouter([
   {
@@ -19,19 +25,17 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-
-        path: '/',
-        element: <Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-
-        path: '/details-page/:id',
+        path: "/details-page/:id",
         element: <DetailsPage></DetailsPage>,
-        loader: () => fetch('/api.json')
+        loader: () => fetch("/api.json"),
       },
       {
-        path: '/property',
-        element: <Properties />
+        path: "/property",
+        element: <Properties />,
       },
       {
         path: "/about-us",
@@ -39,24 +43,47 @@ export const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>
-
+        element: <Login></Login>,
+      },
+      {},
+      {
+        path: "/signup",
+        element: <Signup></Signup>,
       },
       {
-
-      },
-        {
-        path: "/signup",
-        element: <Signup></Signup>
-      },
-        {
-
         path: "contact",
         element: <Contact></Contact>,
-
       },
-
-    ]
-  }
-
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminRoutes />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "booking",
+        element: <Booking />,
+      },
+      {
+        path: "payments",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "users",
+        element: <ManageUser />,
+      },
+      {
+        path: "addroom",
+        element: <AddRoom />,
+      },
+      {
+        path: "managerooms",
+        element: <ManageRoom />,
+      },
+    ],
+  },
 ]);

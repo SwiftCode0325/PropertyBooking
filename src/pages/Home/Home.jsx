@@ -10,15 +10,9 @@ const Home = () => {
     <Banner></Banner>
     <SearchField></SearchField>
     <Property></Property>
-
     <PopularRoom/>
     <Review/>
   </div>);
-
-    <PopularRoom />
-    <Review />
-  </div>;
-
 };
 
 export default Home;
