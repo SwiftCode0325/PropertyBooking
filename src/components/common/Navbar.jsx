@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import ProfileDropdown from "./ProfileDropdown";
 
 
 
@@ -14,7 +15,7 @@ export default function Navbar() {
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
     { name: "Dashboard", href: "/admin/dashboard" },
-    
+
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function Navbar() {
     <header className="bg-white">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-[1440px] w-full items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
           <Link to={"/"} className="-m-1.5 p-1.5">
@@ -45,6 +46,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex lg:hidden">
+          <><ProfileDropdown width={6} user={user} handleSignOut={handleSignOut} /></>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -53,6 +55,7 @@ export default function Navbar() {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
           </button>
+
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item, i) => (
@@ -67,12 +70,7 @@ export default function Navbar() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
           {user ? (
-            <a
-              onClick={handleSignOut}
-              className="text-sm font-semibold leading-6  border rounded-lg px-3 py-1 bg-[#01204E] text-white hover:bg-transparent hover:text-gray-900 transition-all"
-            >
-              Logout
-            </a>
+            <><ProfileDropdown user={user} handleSignOut={handleSignOut} /></>
           ) : (
             <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
               <Link
@@ -131,12 +129,7 @@ export default function Navbar() {
               </div>
               <div className="py-6">
                 {user ? (
-                  <button
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    onClick={handleSignOut}
-                  >
-                    Logout
-                  </button>
+                  ""
                 ) : (
                   <div>
                     <Link

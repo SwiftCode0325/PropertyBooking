@@ -140,7 +140,7 @@ const Login = () => {
 
           <a
             onClick={() => handleSocialLogin(googleLogin)}
-            className="flex items-center justify-center bg-white mt-4 text-gray-700 transition-colors duration-300 transform border border-gray-500 rounded-3xl hover:bg-gray-50"
+            className="flex items-center justify-center bg-white mt-4 text-gray-700 transition-colors duration-300 transform border border-gray-500 rounded-3xl hover:bg-gray-50 cursor-pointer"
           >
             <div className="px-4 py-2">
               <svg className="w-6 h-6" viewBox="0 0 40 40">

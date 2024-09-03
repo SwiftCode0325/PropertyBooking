@@ -1,32 +1,32 @@
-import { FaBed, FaBath, FaEye } from 'react-icons/fa';
+import { FaBed, FaBath, FaEye, FaChartArea } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { IoLocationOutline } from "react-icons/io5";
+
+
 const Card = ({ property }) => {
-    const { id } = property;
-    console.log(id);
+    const { _id, image, title, propertyType, features, location, description, price } = property || {};
 
     return (
-        <div
-            className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
-            style={{ borderColor: '#5994D4', borderWidth: '2px' }}
+        <Link
+            to={`/details-page/${_id}`}
+            className="shadow-lg rounded-lg overflow-hidden transition-transform transform  hover:shadow-2xl relative group"
         >
-            <img src={property?.image} alt={property?.title} className="w-full h-48 object-cover" />
-            <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2" style={{ color: '#01204E' }}>{property?.title}</h3>
-                <p className="text-sm mb-2" style={{ color: '#5994D4' }}>{property.location}</p>
-                <p className="text-gray-700 mb-3">{property?.description}</p>
-                <p className="text-lg font-bold mb-2" style={{ color: '#01204E' }}>{property?.rate}</p>
-                <div className="flex justify-between text-gray-600 text-sm">
-                    <span><FaBed className="inline-block mr-1" /> {property?.beds} Beds</span>
-                    <span><FaBath className="inline-block mr-1" /> {property?.baths} Baths</span>
-                    <span>{property?.area}</span>
-                </div>
-                <Link to={`/details-page/${id}`}>
-                    <button className="mt-4 text-white px-4 py-2 rounded flex items-center" style={{ backgroundColor: '#01204E' }}>
-                        <FaEye className="mr-2" /> See More
-                    </button>
-                </Link>
+            <p className='absolute top-2 left-2 bg-[#01204E] p-2 rounded-lg text-white font-semibold text-sm'>{propertyType}</p>
+            <figure className='h-[200px] overflow-hidden'><img src={image[0]} alt={title} className="w-full object-cover" /></figure>
+            <div className='p-4'>
+                <h1 className='font-bold'>{title}</h1>
+                <p className='text-xs'>{description?.slice(0, 100)}..</p>
             </div>
-        </div>
+            <div className='mx-4 mb-3 bg-gray-100 group-hover:bg-[#01204E] group-hover:text-white transition-all p-3 rounded-lg space-y-3'>
+                <p className='flex items-center gap-1'><IoLocationOutline /> {location?.road}, {location?.area}, {location?.city}.</p>
+                <hr />
+                <div className='flex justify-around'>
+                    <p className='flex items-center gap-1 text-sm'><FaBed /> {features?.bedRoom} beds</p>
+                    <p className='flex items-center gap-1 text-sm'><FaChartArea />  {features?.squareFeet} sq ft</p>
+                    <p className='flex items-center gap-1 text-xl font-bold text-[#01204E] group-hover:text-white transition-all'> {price} BDT</p>
+                </div>
+            </div>
+        </Link>
     );
 };
 
