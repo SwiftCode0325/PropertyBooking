@@ -4,19 +4,21 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const SearchField = () => {
   const [startDate, setStartDate] = useState(null);
+  const [priceRange, setPriceRange] = useState(0);
 
   return (
-    <div className="container mx-auto my-8">
-      <div className="text-right mt-4">
+    <div className="container mx-auto py-8 px-6 shadow-lg">
+      <div className="flex text-right my-4">
+        <input
+          type="text"
+          placeholder="Enter an address"
+          className="border rounded px-4 py-2 w-full"
+        />
         <button className="hover:bg-primary bg-[#5994FF] text-white px-4 py-2 rounded">SEARCH</button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg">
+      <div className="bg-white rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-          <input
-            type="text"
-            placeholder="Enter an address"
-            className="border rounded px-4 py-2 w-full"
-          />
+
           <select className="border rounded px-4 py-2 w-full">
             <option>- Area -</option>
             <option>Kochukhet</option>
@@ -82,8 +84,8 @@ const SearchField = () => {
             <input type="range" min="3" max="2030" className="w-full" />
           </div>
           <div>
-            <label className="block mb-2">Price</label>
-            <input type="range" min="570" max="56000" className="w-full" />
+            <label className="mb-2 flex items-center">Price ({priceRange}-100000) BDT</label>
+            <input onChange={(e) => setPriceRange(e.target.value)} defaultValue={priceRange} type="range" min="570" max="100000" className="w-full" />
           </div>
         </div>
 

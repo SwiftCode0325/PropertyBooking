@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
       {
         path: "/details-page/:id",
         element: <DetailsPage></DetailsPage>,
-        loader: () => fetch("/api.json"),
+        loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
       },
       {
         path: "/property",
