@@ -18,6 +18,7 @@ import PaymentHistory from "../pages/Admin/PaymentHistory/PaymentHistory";
 import ManageUser from "../pages/Admin/ManageUser/ManageUser";
 import AddRoom from "../pages/Admin/AddRoom/AddRoom";
 import ManageRoom from "../pages/Admin/ManageRoom/ManageRoom";
+import DashboardHome from "../pages/Admin/Dashboard/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <DashboardHome />,
       },
       {
         path: "booking",
