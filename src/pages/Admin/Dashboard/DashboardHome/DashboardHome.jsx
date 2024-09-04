@@ -1,19 +1,21 @@
+import { useState } from "react";
 
 
 
 const DashboardHome = () => {
-
+  const [isClicked, setIsClicked] = useState(false);
   const handleEdit = () => {
 
     alert('you can add something')
 
   }
   const handleDelete = () => {
-    <button className="text-green-500">{deletebutton}</button>
+    setIsClicked(true);
+
   }
   return (
     <div>
-      <h2>hello dashboard hoem. we are creating new things</h2>
+
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -41,7 +43,7 @@ const DashboardHome = () => {
               <td className="px-2 py-3 md:px-4 md:py-4">$800</td>
               <td className="px-2 py-3 md:px-4 md:py-4">
                 <button onClick={handleEdit} className="text-blue-500 hover:text-blue-700">Edit</button>
-                <button onClick={handleDelete} className="text-red-500 hover:text-red-700 ml-2">Delete
+                <button onClick={handleDelete} className={` ${isClicked ? 'ml-5 bg-red-500 text-white' : 'hover:bg-blue-600'} hover:bg-green-700`}>Delete
 
                 </button>
               </td>
