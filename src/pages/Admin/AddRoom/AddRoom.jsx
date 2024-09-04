@@ -193,7 +193,7 @@ const AddRoom = () => {
                 className="w-full rounded-md p-2 bg-[#01204E] border border-white text-white"
               />
             </div>
-            <div className="col-span-full sm:col-span-3">
+            <div className="col-span-full sm:col-span-6">
               <label htmlFor="currency" className="text-sm font-semibold">
                 Currency
               </label>
