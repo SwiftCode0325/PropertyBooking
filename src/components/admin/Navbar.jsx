@@ -50,6 +50,16 @@ const Navbar = () => {
           <span>Payments</span>
         </Link>
       </li>
+      <li className="rounded-sm">
+        <Link
+          to="addroom"
+          className="flex items-center p-2 space-x-3 rounded-md"
+          onClick={handleLinkClick}
+        >
+          <MdPayment className="text-3xl" />
+          <span>Add Room</span>
+        </Link>
+      </li>
     </>
   );
 
