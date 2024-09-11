@@ -5,6 +5,8 @@ import Typed from "typed.js";
 
 const DetailsPage = () => {
   const { room } = useLoaderData();
+  console.log(room);
+  
   const el = React.useRef(null);
   React.useEffect(() => {
     const typed = new Typed(el.current, {
