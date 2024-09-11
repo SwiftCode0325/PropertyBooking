@@ -94,6 +94,7 @@ const DashHome = () => {
                     </div>
                 </div>
             </div>
+            <h2>hello vai</h2>
         </div>
     );
 };
