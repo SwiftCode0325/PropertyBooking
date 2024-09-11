@@ -194,7 +194,7 @@ const Property = () => {
                     )}
 
                     <div className="flex justify-center mt-10">
-                        <Link to="/all-properties" className="hover:bg-primary text-white bg-[#5994FF] px-4 py-2 rounded">See All</Link>
+                        <Link to="/property" className="hover:bg-primary text-white bg-[#5994FF] px-4 py-2 rounded">See All</Link>
                     </div>
                 </div>
             </section>

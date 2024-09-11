@@ -64,7 +64,7 @@ const Booking = () => {
                     {property.status}
                   </span>
                 </td>
-                <td className='border px-4 py-2'>
+                <td className='px-4 py-2  flex items-center justify-center'>
                   <button
                     onClick={() => handleDelete(property._id)}
                     className='text-red-500 hover:text-red-700'

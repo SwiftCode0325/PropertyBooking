@@ -8,6 +8,7 @@ const ManageUsers = () => {
             displayName: 'Raj Pritom',
             email: 'prantadeb@gmail.com',
             photoURL: null,
+            role: 'admin',
         },
         // Add more user data here
     ];
@@ -29,6 +30,7 @@ const ManageUsers = () => {
                             <th className='border px-4 py-2'>Photo</th>
                             <th className='border px-4 py-2'>Name</th>
                             <th className='border px-4 py-2'>Email</th>
+                            <th className='border px-4 py-2'>Role</th>
                             <th className='border px-4 py-2'>Action</th>
                         </tr>
                     </thead>
@@ -44,6 +46,7 @@ const ManageUsers = () => {
                                 </td>
                                 <td className='border px-4 py-2'>{user.displayName}</td>
                                 <td className='border px-4 py-2'>{user.email}</td>
+                                <td className='border px-4 py-2'>{user.role}</td>
                                 <td className='border px-4 py-2'>
                                     <button
                                         onClick={() => handleDelete(user.email)}

@@ -52,7 +52,7 @@ const ManageRooms = () => {
                                 <td className='border px-4 py-2'>{room.price}BDT</td>
                                 <td className='border px-4 py-2'>{room.availableFrom}</td>
                                 <td className='border px-4 py-2'>{room.status}</td>
-                                <td className='px-4 py-2 flex items-center justify-center space-x-2'>
+                                <td className='px-4 py-2 space-x-2'>
                                     <button
                                         onClick={() => handleEdit(room.id)}
                                         className='text-blue-500 hover:text-blue-700'
@@ -62,7 +62,7 @@ const ManageRooms = () => {
                                     </button>
                                     <button
                                         onClick={() => handleDelete(room.id)}
-                                        className='text-red-500 hover:text-red-700'
+                                        className='text-red-500 hover:text-red-700 '
                                         title='Delete'
                                     >
                                         <FaTrash />
