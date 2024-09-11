@@ -14,7 +14,7 @@ export default function Navbar() {
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Dashboard", href: "/admin/dashboard" },
+    { name: "Dashboard", href: "/dashboard" },
 
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
