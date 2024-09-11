@@ -14,12 +14,12 @@ const ProfileDropdown = ({ user, handleSignOut, width = 12 }) => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-secondary rounded-box z-[10] mt-3 w-52 p-2 shadow">
                 <li>
-                    <a className="hover:text-white hover:bg-transparent hover:bg-[#01204E] transition-all">
+                    <a className=" hover:bg-[#01204E] hover:text-white transition-all">
                         Profile
                     </a>
                 </li>
-                <li><a className="hover:text-white hover:bg-transparent hover:bg-[#01204E] transition-all">Settings</a></li>
-                <li><a onClick={handleSignOut} className="hover:text-white hover:bg-transparent hover:bg-[#01204E] transition-all">Logout</a></li>
+                <li><a className="hover:bg-[#01204E] hover:text-white transition-all">Settings</a></li>
+                <li><a onClick={handleSignOut} className=" hover:bg-[#01204E] hover:text-white transition-all">Logout</a></li>
             </ul>
         </div>
     );
