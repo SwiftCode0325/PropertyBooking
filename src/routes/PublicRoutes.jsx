@@ -14,6 +14,10 @@ import ManageRooms from "../pages/Dashboard/ManageRooms/ManageRooms";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import AddRoom from "../pages/Dashboard/AddRoom/AddRoom";
+import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
+import Features from "../components/common/Features/Features";
+import Blog from "../components/common/FeaturesDropDown/Blog";
+import Gallery from "../components/common/FeaturesDropDown/Gallery";
 
 export const router = createBrowserRouter([
   {
@@ -47,8 +51,20 @@ export const router = createBrowserRouter([
         element: <Signup></Signup>,
       },
       {
-        path: "contact",
+        path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/features",
+        element: <Features></Features>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery></Gallery>,
       },
     ],
   },
@@ -58,27 +74,31 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <DashHome/>,
+        element: <DashHome />,
+      },
+      {
+        path: 'user_profile',
+        element: <UserProfile></UserProfile>
       },
       {
         path: "booking",
-        element: <Booking/>,  
+        element: <Booking />,
       },
       {
         path: "add_room",
-        element: <AddRoom/>,
+        element: <AddRoom />,
       },
       {
         path: "manage_rooms",
-        element: <ManageRooms/>,  
+        element: <ManageRooms />,
       },
       {
         path: "manage_users",
-        element: <ManageUsers/>,  
+        element: <ManageUsers />,
       },
       {
         path: "payment_history",
-        element: <PaymentHistory/>,  
+        element: <PaymentHistory />,
       },
     ],
   },

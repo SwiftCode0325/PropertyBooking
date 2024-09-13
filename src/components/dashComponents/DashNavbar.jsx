@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { IoMdClose } from "react-icons/io";
-import { FaHome } from 'react-icons/fa';
+import { FaHome, FaUserCheck } from 'react-icons/fa';
 import { TbBrandBooking } from 'react-icons/tb';
 import { MdRoomPreferences } from "react-icons/md";
 import { GrUserSettings } from "react-icons/gr";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { MdOutlineAddHomeWork } from "react-icons/md";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -53,11 +56,24 @@ const Dashboard = () => {
             }>
               <GrUserSettings /> Manage Users
             </NavLink>
+
             <NavLink to="/dashboard/payment_history" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
               <RiSecurePaymentLine />Payment History
             </NavLink>
+            <hr />
+            <NavLink to="/dashboard/user_profile" className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
+            }>
+              <div className='flex justify-center items-center gap-2'>
+                <div>
+                  <img className='rounded-full w-8' src={user?.photoURL} alt="" />
+                </div>
+                User Profile
+              </div>
+            </NavLink>
+
           </nav>
         </div>
       </div >

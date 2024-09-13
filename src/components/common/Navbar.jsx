@@ -1,3 +1,4 @@
+
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
@@ -6,29 +7,35 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import ProfileDropdown from "./ProfileDropdown";
 
-
-
 export default function Navbar() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
+    {
+      name: "Features",
+      href: "/features",
+      dropdown: [
+        { name: "Blog", href: "/blog" },
+        { name: "Gallery", href: "/gallery" },
+      ],
+    },
     { name: "Dashboard", href: "/dashboard" },
-
   ];
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  // user
-  const { user, logOut } = useAuth();
-  console.log("user", user);
 
-  // logout implement
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [featuresDropdownOpen, setFeaturesDropdownOpen] = useState(false); // Dropdown state
+  const navigate = useNavigate();
+
+  const { user, logOut } = useAuth();
+
   const handleSignOut = () => {
     logOut().then().catch();
     toast.success("Log out success");
     navigate("/");
   };
+
   return (
     <header className="bg-white">
       <nav
@@ -46,7 +53,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <><ProfileDropdown width={6} user={user} handleSignOut={handleSignOut} /></>
+          <ProfileDropdown user={user} handleSignOut={handleSignOut} />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -55,22 +62,45 @@ export default function Navbar() {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
           </button>
-
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item, i) => (
-            <Link
-              key={i + 1}
-              to={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
+            <div
+              key={i}
+              className="relative"
+              onMouseEnter={() => item.dropdown && setFeaturesDropdownOpen(true)}
+              onMouseLeave={() => setFeaturesDropdownOpen(false)}
             >
-              {item.name}
-            </Link>
+              <Link
+                to={item.href}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {item.name}
+              </Link>
+
+              {/* Dropdown for "Features" */}
+              {item.dropdown && featuresDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
+                    {item.dropdown.map((subItem, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={subItem.href}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        role="menuitem"
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
           {user ? (
-            <><ProfileDropdown user={user} handleSignOut={handleSignOut} /></>
+            <ProfileDropdown user={user} handleSignOut={handleSignOut} />
           ) : (
             <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
               <Link
@@ -89,6 +119,8 @@ export default function Navbar() {
           )}
         </div>
       </nav>
+
+      {/* Mobile Menu */}
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
@@ -97,14 +129,14 @@ export default function Navbar() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
                 src="/src/assets/logo/logo1.png"
                 className="h-20 w-auto"
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
