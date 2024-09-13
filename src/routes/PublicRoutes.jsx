@@ -45,7 +45,10 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login></Login>,
       },
-      {},
+      {
+        path: 'user_profile',
+        element: <UserProfile></UserProfile>
+      },
       {
         path: "/signup",
         element: <Signup></Signup>,
@@ -76,10 +79,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <DashHome />,
       },
-      {
-        path: 'user_profile',
-        element: <UserProfile></UserProfile>
-      },
+
       {
         path: "booking",
         element: <Booking />,
