@@ -17,8 +17,8 @@ export default function Navbar() {
       name: "Features",
       href: "/features",
       dropdown: [
-        { name: "Blog", href: "/features/blog" },
-        { name: "Gallery", href: "/features/gallery" },
+        { name: "Blog", href: "/blog" },
+        { name: "Gallery", href: "/gallery" },
       ],
     },
     { name: "Dashboard", href: "/dashboard" },

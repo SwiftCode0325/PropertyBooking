@@ -16,6 +16,8 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import AddRoom from "../pages/Dashboard/AddRoom/AddRoom";
 import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import Features from "../components/common/Features/Features";
+import Blog from "../components/common/FeaturesDropDown/Blog";
+import Gallery from "../components/common/FeaturesDropDown/Gallery";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ export const router = createBrowserRouter([
       {
         path: "/features",
         element: <Features></Features>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery></Gallery>,
       },
     ],
   },
