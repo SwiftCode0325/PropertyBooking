@@ -14,7 +14,7 @@ const ProfileDropdown = ({ user, handleSignOut, width = 12 }) => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-secondary rounded-box z-[10] mt-3 w-52 p-2 shadow">
                 <li>
-                    <a className=" hover:bg-[#01204E] hover:text-white transition-all">
+                    <a href='/user_profile' className=" hover:bg-[#01204E] hover:text-white transition-all">
                         Profile
                     </a>
                 </li>

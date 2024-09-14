@@ -11,7 +11,7 @@ const UserProfile = () => {
 
   }
   return (
-    <div className='container mx-auto px-4 py-6'>
+    <div className='container mx-auto px-4 py-6 '>
       <h1 className='text-center my-5 font-bold text-primary text-2xl' >User Profile</h1>
       <div className='px-4'>
         <div className="flex justify-center items-center p-4">
