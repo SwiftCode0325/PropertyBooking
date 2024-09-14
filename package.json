@@ -16,7 +16,7 @@
     "@react-google-maps/api": "^2.19.3",
     "aos": "^2.3.4",
     "apexcharts": "^3.53.0",
-    "axios": "^1.7.5",
+    "axios": "^1.7.7",
     "date-fns": "^3.6.0",
     "firebase": "^10.13.0",
     "leaflet": "^1.9.4",
