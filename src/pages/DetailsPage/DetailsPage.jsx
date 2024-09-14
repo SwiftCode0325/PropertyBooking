@@ -118,9 +118,9 @@ const DetailsPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium">Booking Date</label>
+                    <label className="block text-sm font-medium">Flat Adress</label>
                     <input
-                      type="date"
+                      type="text"
                       className="w-full p-2 border rounded"
                     />
                   </div>
