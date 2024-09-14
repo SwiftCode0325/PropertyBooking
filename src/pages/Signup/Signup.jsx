@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import axios from "axios";
 
 const Signup = () => {
-  const { createUser, updateUserProfile, googleLogin } = useAuth();
+  const { createUser,user, setUser, updateUserProfile, googleLogin } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -19,7 +20,8 @@ const Signup = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const { email, password, image, name } = data;
+    const { email, password, name } = data;
+
     setLoading(true);
 
     if (password.length < 6) {
@@ -39,11 +41,17 @@ const Signup = () => {
     }
 
     try {
-      const result = await createUser(email, password, image, name);
-      await updateUserProfile(name, image);
+      const result = await createUser(email, password);
       if (result.user) {
-        toast.success("Successfully signed up");
-        navigate(location?.state ? location.state : "/");
+        const { data: res } = await axios.post('http://localhost:5000/api/auth/signup', data);
+        
+          setUser({ user: result.user, more: res.user });
+          console.log(user);
+          return
+          
+          toast.success("Successfully signed up");
+          navigate(location?.state ? location.state : "/");
+       
       }
     } catch (error) {
       toast.error("Sign up failed!");

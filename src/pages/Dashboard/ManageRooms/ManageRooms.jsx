@@ -28,7 +28,6 @@ const ManageRooms = () => {
     return (
         <div className='container mx-auto px-4 py-6'>
             <h1 className='text-center my-5 font-bold text-primary text-2xl'>Manage Rooms</h1>
-
             {/* Table for displaying room data */}
             <div className='overflow-x-auto'>
                 <table className='table-auto w-full text-left border-collapse border border-gray-200'>
