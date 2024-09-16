@@ -1,17 +1,49 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
+import uploadImageToImgBB from '../../../utils/helper';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const UserProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUserUpdateTrigger, userUpdateTrigger, setUser } = useContext(AuthContext);
   const [activeTab, setActiveTab] = useState('profile');
   const handleTabSwitch = (tab) => setActiveTab(tab);
 
-  const handleUpdateProfile = (e) => {
+  const handleUpdateProfile = async (e) => {
     e.preventDefault();
+    const form = e.target;
+    const displayName = form.displayName.value;
+    const imageFile = form.image.files[0];
 
+    if (imageFile) {
+      const image = await uploadImageToImgBB(imageFile);
+      try {
+        const { data: res } = await axios.put(`http://localhost:5000/api/users/update/profile/${user._id}`, { displayName, photoURL: image });
+        setUser(res.user);
+
+        toast.success("profile updated successfully");
+        handleTabSwitch('profile')
+
+      } catch (error) {
+        toast.error("something went wrong, try again");
+        console.log("something went wrong,", error);
+      }
+    } else {
+      try {
+        const { data: res } = await axios.put(`http://localhost:5000/api/users/update/profile/${user._id}`, { displayName, photoURL: null });
+        setUser(res.user);
+
+        toast.success("profile updated successfully");
+        handleTabSwitch('profile')
+      } catch (error) {
+        toast.error("something went wrong, try again");
+        console.log("something went wrong,", error);
+
+      }
+    }
   }
   return (
-    <div className='container mx-auto px-4 py-6'>
+    <div className='container mx-auto px-4 py-6 '>
       <h1 className='text-center my-5 font-bold text-primary text-2xl' >User Profile</h1>
       <div className='px-4'>
         <div className="flex justify-center items-center p-4">
@@ -67,15 +99,19 @@ const UserProfile = () => {
                       <label className="block text-gray-700 mb-2">Update Name</label>
                       <input
                         type="text"
+                        name='displayName'
+                        required
+                        defaultValue={user?.displayName}
                         className="w-full p-2 border border-gray-300 rounded"
                         placeholder="Enter your name"
                       />
                     </div>
 
                     <div className="mb-4">
-                      <label className="block text-gray-700 mb-2">Update Email</label>
+                      <label className="block text-gray-700 mb-2">Update Image</label>
                       <input
-                        type="email"
+                        type="file"
+                        name='image'
                         className="w-full p-2 border border-gray-300 rounded"
                         placeholder="Enter your email"
                       />
@@ -83,7 +119,7 @@ const UserProfile = () => {
 
                     <button
                       type="submit"
-                      className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
+                      className="bg-primary text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
                     >
                       Save Changes
                     </button>

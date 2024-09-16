@@ -11,7 +11,6 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-  console.log(user)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -29,49 +28,51 @@ const Dashboard = () => {
               className={"flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
               }
             >
-              <FaHome />Home
+              <FaHome />DashboardHome
             </NavLink>
-            <NavLink to="/" className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
-            }>
-              <FaHome />Site
-            </NavLink>
-            <NavLink to="/dashboard/booking" className={({ isActive, isPending }) =>
+
+            {user?.role === "user" ? <NavLink to="/dashboard/booking" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
               <TbBrandBooking />Booking
-            </NavLink>
-            <NavLink to="/dashboard/add_room" className={({ isActive, isPending }) =>
+            </NavLink> : ""}
+
+            {user?.role === "admin" || user?.role === "owner" ? <NavLink to="/dashboard/add_room" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
               <MdOutlineAddHomeWork />Add Room
-            </NavLink>
-            <NavLink to="/dashboard/manage_rooms" className={({ isActive, isPending }) =>
+            </NavLink> : ""}
+
+            {user?.role === "admin" || user?.role === "owner" ? <NavLink to="/dashboard/manage_rooms" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
               <MdRoomPreferences />Manage Rooms
-            </NavLink>
-            <NavLink to="/dashboard/manage_users" className={({ isActive, isPending }) =>
+            </NavLink> : ""}
+
+            {user?.role === "admin" ? <NavLink to="/dashboard/manage_users" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
               <GrUserSettings /> Manage Users
-            </NavLink>
+            </NavLink> : ""}
+
+            {user?.role === "admin" ? <NavLink to="/dashboard/total_bookings" className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
+            }>
+              <GrUserSettings /> Total Booking
+            </NavLink> : ""}
 
             <NavLink to="/dashboard/payment_history" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
               <RiSecurePaymentLine />Payment History
             </NavLink>
+
             <hr />
-            <NavLink to="/dashboard/user_profile" className={({ isActive, isPending }) =>
+
+            <NavLink to="/" className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "flex items-center gap-1 bg-[#5994D4] hover:bg-[#5994D4] rounded p-2" : "flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
             }>
-              <div className='flex justify-center items-center gap-2'>
-                <div>
-                  <img className='rounded-full w-8' src={user?.photoURL} alt="" />
-                </div>
-                User Profile
-              </div>
+              <FaHome />Home
             </NavLink>
 
           </nav>

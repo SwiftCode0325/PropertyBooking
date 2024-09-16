@@ -1,5 +1,5 @@
-import React from 'react'; // Import React
-import ReactApexChart from 'react-apexcharts'; // Correct import for ApexCharts
+import React from 'react'; 
+import ReactApexChart from 'react-apexcharts';
 
 class BookingChart extends React.Component {
     constructor(props) {

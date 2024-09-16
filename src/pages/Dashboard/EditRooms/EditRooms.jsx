@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import uploadImageToImgBB from '../../../utils/helper';
-import toast from 'react-hot-toast';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
-const AddRoom = () => {
+const EditRooms = () => {
     const { user } = useContext(AuthContext);
+    const { room } = useLoaderData();
+    const navigate = useNavigate();
+
     const handleAddRoom = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -19,17 +22,7 @@ const AddRoom = () => {
         const price = form.price.value;
         const advanceFee = form.advanceFee.value;
         const currency = form.currency.value;
-        const image1 = form.image1.files[0];
-        const image2 = form.image2.files[0];
-        if (!image1 || !image2) {
-            return toast.error("image1 and image2 must be required");
-        }
 
-        const newImage1 = await uploadImageToImgBB(image1);
-        const newImage2 = await uploadImageToImgBB(image2);
-        if (!newImage1 || !newImage2) {
-            return toast.error("something failed! try again");
-        }
         const location = {
             block: form.block.value,
             road: form.road.value,
@@ -76,7 +69,7 @@ const AddRoom = () => {
                 form.cctv.value,
                 form.guards.value,
             ]
-        const image = [newImage1, newImage2]
+
         const newData = {
             id,
             title,
@@ -92,20 +85,14 @@ const AddRoom = () => {
             features,
             security,
             amenities,
-            image,
-            auth: {
-                id: user._id,
-                name: user.displayName,
-                email: user.email,
-            }
         }
 
         try {
-            const { data: res } = await axios.post('http://localhost:5000/api/rooms/add-room', newData);
-            console.log(res);
+            const { data: res } = await axios.post(`http://localhost:5000/api/rooms/update/${room._id}`, newData);
             if (res.success) {
                 toast.success("added room successfully");
                 form.reset();
+                navigate(`/dashboard/manage_rooms`);
             }
 
         } catch (error) {
@@ -117,7 +104,7 @@ const AddRoom = () => {
     return (
         <>
             <div className='container mx-auto px-4 py-6'>
-                <h1 className='text-center my-5 font-bold text-primary text-2xl'>Add Room</h1>
+                <h1 className='text-center my-5 font-bold text-primary text-2xl'>Edit Room</h1>
                 <div className='px-4'>
                     <div className="dark:bg-gray-100 dark:text-gray-900 mb-3">
                         <form
@@ -140,6 +127,7 @@ const AddRoom = () => {
                                         <input
                                             id="id"
                                             name="id"
+                                            defaultValue={room?.id}
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -151,6 +139,7 @@ const AddRoom = () => {
                                         <input
                                             id="title"
                                             name="title"
+                                            defaultValue={room?.title}
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -161,6 +150,7 @@ const AddRoom = () => {
                                         </label>
                                         <textarea
                                             id="description"
+                                            defaultValue={room?.description}
                                             name="description"
                                             rows="3"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -172,6 +162,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="propertyType"
+                                            defaultValue={room?.propertyType}
                                             name="propertyType"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -184,6 +175,7 @@ const AddRoom = () => {
                                         <input
                                             id="propertyFor"
                                             name="propertyFor"
+                                            defaultValue={room?.propertyFor}
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -194,6 +186,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="status"
+                                            defaultValue={room?.status}
                                             name="status"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -206,6 +199,7 @@ const AddRoom = () => {
                                         <input
                                             id="availableFrom"
                                             name="availableFrom"
+                                            defaultValue={room?.availableFrom}
                                             type="date"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -216,6 +210,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="price"
+                                            defaultValue={room?.price}
                                             name="price"
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -227,6 +222,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="advanceFee"
+                                            defaultValue={room?.advanceFee}
                                             name="advanceFee"
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -238,6 +234,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="currency"
+                                            defaultValue={room?.currency}
                                             name="currency"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -262,6 +259,7 @@ const AddRoom = () => {
                                         <input
                                             id="block"
                                             name="block"
+                                            defaultValue={room?.location?.block}
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -272,6 +270,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="road"
+                                            defaultValue={room?.location?.road}
                                             name="road"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -283,6 +282,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="area"
+                                            defaultValue={room?.location?.area}
                                             name="area"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -294,6 +294,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="city"
+                                            defaultValue={room?.location?.city}
                                             name="city"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -305,6 +306,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="district"
+                                            defaultValue={room?.location?.district}
                                             name="district"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -316,6 +318,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="division"
+                                            defaultValue={room?.location?.division}
                                             name="division"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -327,6 +330,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="postalCode"
+                                            defaultValue={room?.location?.postalCode}
                                             name="postalCode"
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -338,6 +342,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="lat"
+                                            defaultValue={room?.location?.lat}
                                             name="lat"
                                             type="number"
                                             step="0.000001"
@@ -351,6 +356,7 @@ const AddRoom = () => {
                                         <input
                                             id="long"
                                             name="long"
+                                            defaultValue={room?.location?.long}
                                             type="number"
                                             step="0.000001"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -362,6 +368,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="number"
+                                            defaultValue={room?.location?.number}
                                             name="number"
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -386,6 +393,7 @@ const AddRoom = () => {
                                         <input
                                             id="bedRoom"
                                             name="bedRoom"
+                                            defaultValue={room?.features?.bedRoom}
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -397,6 +405,7 @@ const AddRoom = () => {
                                         <input
                                             id="bathRoom"
                                             name="bathRoom"
+                                            defaultValue={room?.features?.bathRoom}
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -408,6 +417,7 @@ const AddRoom = () => {
                                         <input
                                             id="kitchen"
                                             name="kitchen"
+                                            defaultValue={room?.features?.kitchen}
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -419,6 +429,7 @@ const AddRoom = () => {
                                         <input
                                             id="livingRoom"
                                             name="livingRoom"
+                                            defaultValue={room?.features?.livingRoom}
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -433,6 +444,7 @@ const AddRoom = () => {
                                         <input
                                             id="attachedBathRoom"
                                             name="attachedBathRoom"
+                                            defaultValue={room?.features?.attachedBathRoom}
                                             type="number"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
@@ -443,6 +455,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="squareFeet"
+                                            defaultValue={room?.features?.squareFeet}
                                             name="squareFeet"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -454,6 +467,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="parking"
+                                            defaultValue={room?.features?.parking}
                                             name="parking"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -466,6 +480,7 @@ const AddRoom = () => {
                                             <input
                                                 id="wifi"
                                                 name="wifi"
+                                                defaultChecked={room?.features?.hasWifi}
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
                                             />
@@ -477,6 +492,7 @@ const AddRoom = () => {
                                             <input
                                                 id="ac"
                                                 name="ac"
+                                                defaultChecked={room?.features?.hasAirConditioning}
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
                                             />
@@ -487,6 +503,7 @@ const AddRoom = () => {
                                         <div className="flex items-center">
                                             <input
                                                 id="hasFridge"
+                                                defaultChecked={room?.features?.hasFridge}
                                                 name="hasFridge"
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
@@ -502,6 +519,7 @@ const AddRoom = () => {
                                             <input
                                                 id="hasElevator"
                                                 name="hasElevator"
+                                                defaultChecked={room?.features?.hasElevator}
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
                                             />
@@ -516,6 +534,7 @@ const AddRoom = () => {
                                             <input
                                                 id="hasGarden"
                                                 name="hasGarden"
+                                                defaultChecked={room?.features?.hasGarden}
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
                                             />
@@ -531,6 +550,7 @@ const AddRoom = () => {
                                                 id="hasPool"
                                                 name="hasPool"
                                                 type="checkbox"
+                                                defaultChecked={room?.features?.hasPool}
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
                                             />
                                             <label htmlFor="hasPool" className="ml-2 text-sm font-semibold">
@@ -541,6 +561,7 @@ const AddRoom = () => {
                                             <input
                                                 id="hasBalcony"
                                                 name="hasBalcony"
+                                                defaultChecked={room?.features?.hasBalcony}
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
                                             />
@@ -554,6 +575,7 @@ const AddRoom = () => {
                                         <div className="flex items-center">
                                             <input
                                                 id="furnished"
+                                                defaultChecked={room?.features?.furnished}
                                                 name="furnished"
                                                 type="checkbox"
                                                 className="rounded-md bg-[#01204E] border border-white text-white"
@@ -584,6 +606,7 @@ const AddRoom = () => {
                                         <input
                                             id="pets"
                                             name="pets"
+                                            defaultChecked={room?.security?.restriction?.pets}
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
                                         />
@@ -597,6 +620,7 @@ const AddRoom = () => {
                                         <input
                                             id="smoking"
                                             name="smoking"
+                                            defaultChecked={room?.security?.restriction?.smoking}
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
                                         />
@@ -610,6 +634,7 @@ const AddRoom = () => {
                                         <input
                                             id="drink"
                                             name="drink"
+                                            defaultChecked={room?.security?.restriction?.drink}
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
                                         />
@@ -622,6 +647,7 @@ const AddRoom = () => {
                                         <input
                                             id="drugs"
                                             name="drugs"
+                                            defaultChecked={room?.security?.restriction?.drugs}
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
                                         />
@@ -634,6 +660,7 @@ const AddRoom = () => {
                                     <div className="flex items-center">
                                         <input
                                             id="girlsAllowed"
+                                            defaultChecked={room?.security?.restriction?.girlsAllowed}
                                             name="girlsAllowed"
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
@@ -650,6 +677,7 @@ const AddRoom = () => {
                                     <div className="flex items-center">
                                         <input
                                             id="boysAllowed"
+                                            defaultChecked={room?.security?.restriction?.boysAllowed}
                                             name="boysAllowed"
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
@@ -666,6 +694,7 @@ const AddRoom = () => {
                                     <div className="flex items-center">
                                         <input
                                             id="securityGarage"
+                                            defaultChecked={room?.security?.securityGarage}
                                             name="securityGarage"
                                             type="checkbox"
                                             className="rounded-md bg-[#01204E] border border-white text-white"
@@ -696,6 +725,7 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="cctv"
+                                            defaultValue={room?.amenities[0]}
                                             name="cctv"
                                             type="text"
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
@@ -707,44 +737,9 @@ const AddRoom = () => {
                                         </label>
                                         <input
                                             id="guards"
+                                            defaultValue={room?.amenities[1]}
                                             name="guards"
                                             type="text"
-                                            className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
-                                        />
-                                    </div>
-                                </div>
-                            </fieldset>
-
-                            {/* Media Section */}
-                            <fieldset className="grid grid-cols-4 gap-6  rounded-md shadow-sm dark:bg-gray-50">
-                                <div className="space-y-2 col-span-full lg:col-span-1">
-                                    <p className="font-medium text-lg">Media</p>
-                                    <p className="text-xs text-gray-500">
-                                        Upload media related to the property.
-                                    </p>
-                                </div>
-                                <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-                                    <div className="col-span-full">
-                                        <label htmlFor="images" className="text-sm font-semibold">
-                                            Image 1
-                                        </label>
-                                        <input
-                                            id="image"
-                                            name="image1"
-                                            type="file"
-                                            multiple
-                                            className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
-                                        />
-                                    </div>
-                                    <div className="col-span-full">
-                                        <label htmlFor="videos" className="text-sm font-semibold">
-                                            Image 2
-                                        </label>
-                                        <input
-                                            id="videos"
-                                            name="image2"
-                                            type="file"
-                                            multiple
                                             className="w-full rounded-md p-2 border-2 border-[#01204EA3]"
                                         />
                                     </div>
@@ -769,4 +764,4 @@ const AddRoom = () => {
     );
 };
 
-export default AddRoom;
+export default EditRooms;
