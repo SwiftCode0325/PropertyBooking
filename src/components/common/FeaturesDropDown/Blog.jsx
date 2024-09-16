@@ -32,6 +32,18 @@ const Blog = () => {
       image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/485465176.jpg?k=7b2ca76d1e800106c21bf461cfb4b7937ef50c14894015c7ea3af9805dca9522&o=&hp=1',
       link: '/',
     },
+    {
+      title: 'Affordable Flats for Rent: Budget Tips',
+      content: 'Looking for affordable flats? We provide some practical budget-saving tips for renters. From searching the right neighborhoods to negotiating the rental agreement, this blog will help you find an affordable option...',
+      image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/485465176.jpg?k=7b2ca76d1e800106c21bf461cfb4b7937ef50c14894015c7ea3af9805dca9522&o=&hp=1',
+      link: '/',
+    },
+    {
+      title: 'Affordable Flats for Rent: Budget Tips',
+      content: 'Looking for affordable flats? We provide some practical budget-saving tips for renters. From searching the right neighborhoods to negotiating the rental agreement, this blog will help you find an affordable option...',
+      image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/485465176.jpg?k=7b2ca76d1e800106c21bf461cfb4b7937ef50c14894015c7ea3af9805dca9522&o=&hp=1',
+      link: '/',
+    },
   ];
 
 
