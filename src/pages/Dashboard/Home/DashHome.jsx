@@ -17,10 +17,8 @@ const DashHome = () => {
             <div className="flex justify-end">
                 {user && <ProfileDropdown user={user} handleSignOut={handleSignOut} />}
             </div>
-
             {user.role === "user" && <UserHome />}
-        </div>
-    );
+        </div>);
 };
 
 export default DashHome;
