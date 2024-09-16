@@ -1,5 +1,3 @@
-
-
 const ReviewCard = ({ review }) => {
     const {name,email,ratings,image, review_description} = review;
   return (

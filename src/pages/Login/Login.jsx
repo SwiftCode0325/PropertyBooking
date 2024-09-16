@@ -7,13 +7,14 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
-  const { signIn, googleLogin } = useAuth();
-  const auth = getAuth(app);
+  const { googleLogin, setUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [showEye, setShowEye] = useState(false);
+  
 
   const {
     register,
@@ -25,11 +26,15 @@ const Login = () => {
     const { email, password } = data;
 
     try {
-      await signIn(email, password);
-      toast.success("Successfully logged in");
-      navigate(location?.state?.from || "/");
+      const { data: res } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      if (res.success) {
+        setUser(res.user);
+        localStorage.setItem('email', res.user.email);
+        toast.success("Successfully signed up");
+        navigate(location?.state ? location.state : "/");
+      }
     } catch (error) {
-      toast.error("Sign in failed");
+      toast.error("Invalid credentials!");
       console.error(error);
     }
   };
@@ -38,8 +43,14 @@ const Login = () => {
     try {
       const result = await socialProvider();
       if (result.user) {
-        toast.success("Successfully logged in");
-        navigate(location?.state?.from || "/");
+        const { data: res } = await axios.post('http://localhost:5000/api/auth/social', { email: result.user.email, displayName: result.user.displayName, photoURL: result.user.photoURL });
+        if (res.success) {
+          setUser(res.user);
+          localStorage.setItem('email', res.user.email);
+          toast.success("Successfully logged in");
+          navigate(location?.state || "/");
+        }
+
       }
     } catch (error) {
       toast.error("Sign in failed");
@@ -48,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-white py-8 min-h-screen flex justify-center items-center">
+    <div className="bg-white md:py-8 md:min-h-screen flex justify-center items-center">
       <div className="flex flex-col-reverse lg:flex-row w-full max-w-4xl mx-auto overflow-hidden bg-[#ebf4f6] rounded-lg shadow-lg">
         {/* Content Section */}
         <div className="w-full lg:w-7/12 px-6 py-8">

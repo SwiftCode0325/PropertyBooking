@@ -18,11 +18,17 @@ import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import Features from "../components/common/Features/Features";
 import Blog from "../components/common/FeaturesDropDown/Blog";
 import Gallery from "../components/common/FeaturesDropDown/Gallery";
+import EditRooms from "../pages/Dashboard/EditRooms/EditRooms";
+import AdminOwnerPrivate from "./AdminOwnerPrivate";
+import AdminPrivate from "./AdminPrivate";
+import Private from "./Private";
+import TotalBookings from "../pages/Dashboard/TotalBookings/TotalBookings";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: "error",
     children: [
       {
         path: "/",
@@ -30,7 +36,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details-page/:id",
-        element: <DetailsPage></DetailsPage>,
+        element: <Private><DetailsPage></DetailsPage></Private>,
         loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
       },
       {
@@ -47,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'user_profile',
-        element: <UserProfile></UserProfile>
+        element: <Private><UserProfile></UserProfile></Private>
       },
       {
         path: "/signup",
@@ -73,32 +79,42 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoardLayout />,
+    element: <Private><DashBoardLayout /></Private>,
+    errorElement: "error",
     children: [
       {
         path: "",
-        element: <DashHome />,
+        element: <Private><DashHome /></Private>,
       },
 
       {
         path: "booking",
-        element: <Booking />,
+        element: <Private><Booking /></Private>,
       },
       {
         path: "add_room",
-        element: <AddRoom />,
+        element: <AdminOwnerPrivate><AddRoom /></AdminOwnerPrivate>,
       },
       {
         path: "manage_rooms",
-        element: <ManageRooms />,
+        element: <AdminOwnerPrivate><ManageRooms /></AdminOwnerPrivate>,
       },
       {
         path: "manage_users",
-        element: <ManageUsers />,
+        element: <AdminPrivate><ManageUsers /></AdminPrivate>,
+      },
+      {
+        path: "total_bookings",
+        element: <AdminPrivate><TotalBookings /></AdminPrivate>,
       },
       {
         path: "payment_history",
-        element: <PaymentHistory />,
+        element: <Private><PaymentHistory /></Private>,
+      },
+      {
+        path: "edit_room/:id",
+        element: <AdminOwnerPrivate><EditRooms /></AdminOwnerPrivate>,
+        loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
       },
     ],
   },

@@ -13,25 +13,15 @@ export default function Navbar() {
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact" },
-    {
-      name: "Features",
-      href: "/features",
-      dropdown: [
-        { name: "Blog", href: "/blog" },
-        { name: "Gallery", href: "/gallery" },
-      ],
-    },
-    { name: "Dashboard", href: "/dashboard" },
+    { name: "Features", href: "/features" },
   ];
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [featuresDropdownOpen, setFeaturesDropdownOpen] = useState(false); // Dropdown state
   const navigate = useNavigate();
-
-  const { user, logOut } = useAuth();
-
+  const { user, setUser, logOut } = useAuth();
   const handleSignOut = () => {
-    logOut().then().catch();
+    setUser(null)
+    logOut();
+    localStorage.removeItem('email');
     toast.success("Log out success");
     navigate("/");
   };
@@ -53,23 +43,21 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <ProfileDropdown user={user} handleSignOut={handleSignOut} />
+          {user && <ProfileDropdown user={user} handleSignOut={handleSignOut} />}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+            <Bars3Icon aria-hidden="true" className="h-12 w-12" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item, i) => (
             <div
               key={i}
-              className="relative"
-              onMouseEnter={() => item.dropdown && setFeaturesDropdownOpen(true)}
-              onMouseLeave={() => setFeaturesDropdownOpen(false)}
+              className="relative z-50"
             >
               <Link
                 to={item.href}
@@ -77,27 +65,20 @@ export default function Navbar() {
               >
                 {item.name}
               </Link>
-
-              {/* Dropdown for "Features" */}
-              {item.dropdown && featuresDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
-                    {item.dropdown.map((subItem, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        to={subItem.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        role="menuitem"
-                      >
-                        {subItem.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           ))}
+          {user && <div
+            className="relative z-50"
+          >
+            <Link
+              to="/dashboard"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Dashboard
+            </Link>
+          </div>}
         </div>
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
           {user ? (
             <ProfileDropdown user={user} handleSignOut={handleSignOut} />
@@ -158,6 +139,12 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
+                {user && <Link
+                  to="/dashboard"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Dashboard
+                </Link>}
               </div>
               <div className="py-6">
                 {user ? (

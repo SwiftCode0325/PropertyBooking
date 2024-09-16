@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Typed from "typed.js";
 import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 
 const DetailsPage = () => {
   const { user } = useContext(AuthContext)
   const { room } = useLoaderData();
-  console.log(room);
+  const navigate = useNavigate();
 
   const el = React.useRef(null);
   React.useEffect(() => {
@@ -36,15 +38,37 @@ const DetailsPage = () => {
   }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalsubmit, setModalSubmit] = useState(null);
 
-  // Function to toggle the modal
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const modalSubmit = () => {
-    console.log('hello')
+  const handleBooking = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const buyer_name = form.buyer_name.value;
+    const buyer_email = form.buyer_email.value;
+    const number = form.number.value;
+    const address = form.address.value;
+
+    const bookingData = {
+      userId: user._id,
+      flatId: room?._id,
+      phone: number,
+      address,
+    }
+
+    try {
+      const { data } = await axios.post("http://localhost:5000/api/bookings/book-room", bookingData);
+      toast.success("Booking has been created!");
+      setIsModalOpen(false);
+      navigate('/dashboard/booking')
+
+    } catch (error) {
+      toast.error("something want wrong! try again")
+      console.log(error);
+    }
+
   }
 
   return (
@@ -77,10 +101,10 @@ const DetailsPage = () => {
         <div className="flex justify-center items-center">
 
           {/* here is button  */}
-
-          <button className="px-3 py-2 bg-primary text-white font-bold rounded hover:bg-accent" onClick={toggleModal}>
+          {room?.auth?.email === user?.email || user?.role === "admin" || user?.role === "owner" ? "" : <button className="px-3 py-2 my-4 bg-primary text-white font-bold rounded hover:bg-accent" onClick={toggleModal}>
             Booking Now
-          </button>
+          </button>}
+
 
           {/* Modal */}
           {isModalOpen && (
@@ -89,11 +113,13 @@ const DetailsPage = () => {
                 <h2 className="text-2xl font-bold mb-4">Booking Form</h2>
 
 
-                <form className="space-y-4">
+                <form onSubmit={handleBooking} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium">Name</label>
                     <input
                       type="text"
+                      disabled
+                      name="buyer_name"
                       className="w-full p-2 border rounded"
                       defaultValue={user?.displayName}
                     />
@@ -103,24 +129,31 @@ const DetailsPage = () => {
                     <label className="block text-sm font-medium">Email</label>
                     <input
                       type="email"
+                      name="buyer_email"
+                      disabled
                       className="w-full p-2 border rounded"
                       defaultValue={user?.email}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium">Phone</label>
+                    <label className="block text-sm font-medium">Contact Number</label>
                     <input
-                      type="tel"
+                      name="number"
+                      required
+                      type="number"
                       className="w-full p-2 border rounded"
                       placeholder="Enter your phone number"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium">Flat Adress</label>
+                    <label className="block text-sm font-medium">Address</label>
                     <input
                       type="text"
+                      name="address"
+                      required
+                      placeholder="Enter your full address"
                       className="w-full p-2 border rounded"
                     />
                   </div>
@@ -135,9 +168,8 @@ const DetailsPage = () => {
                       Close
                     </button>
                     <button
-                      type="button"
+                      type="submit"
                       className="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-accent"
-                      onClick={modalSubmit}
                     >
                       Submit
                     </button>

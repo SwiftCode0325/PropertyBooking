@@ -1,31 +1,24 @@
-
+import { useContext } from "react";
+import UserHome from "../UserHome/UserHome";
+import { AuthContext } from "../../../provider/AuthProvider";
+import ProfileDropdown from "../../../components/common/ProfileDropdown";
 
 const DashHome = () => {
-
-
-
-
-                                        <button
-                                            type="submit"
-                                            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
-                                        >
-                                            Save Changes
-                                        </button>
-                                    </form>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h2>hello vai</h2>
-        </div>
-        
-
+    const { user, setUser, logOut } = useContext(AuthContext);
+    const handleSignOut = () => {
+        setUser(null)
+        logOut();
+        localStorage.removeItem('email');
+        toast.success("Log out success");
+        navigate("/");
+    };
     return (
-        <h1 className="text-3xl bg-white text-black font-bold text-center mt-5">hello dashboard home</h1>
-
-    );
+        <div className="p-4">
+            <div className="flex justify-end">
+                {user && <ProfileDropdown user={user} handleSignOut={handleSignOut} />}
+            </div>
+            {user.role === "user" && <UserHome />}
+        </div>);
 };
 
 export default DashHome;

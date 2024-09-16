@@ -7,7 +7,7 @@ import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import axios from "axios";
 
 const Signup = () => {
-  const { createUser,user, setUser, updateUserProfile, googleLogin } = useAuth();
+  const { setUser, googleLogin } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -41,17 +41,12 @@ const Signup = () => {
     }
 
     try {
-      const result = await createUser(email, password);
-      if (result.user) {
-        const { data: res } = await axios.post('http://localhost:5000/api/auth/signup', data);
-        
-          setUser({ user: result.user, more: res.user });
-          console.log(user);
-          return
-          
-          toast.success("Successfully signed up");
-          navigate(location?.state ? location.state : "/");
-       
+      const { data: res } = await axios.post('http://localhost:5000/api/auth/signup', { email, password, displayName: name });
+      if (res.success) {
+        setUser(res.user);
+        localStorage.setItem('email', res.user.email);
+        toast.success("Successfully signed up");
+        navigate(location?.state ? location.state : "/");
       }
     } catch (error) {
       toast.error("Sign up failed!");
@@ -64,8 +59,14 @@ const Signup = () => {
     try {
       const result = await socialProvider();
       if (result.user) {
-        toast.success("Successfully logged in");
-        navigate(location?.state?.from || "/");
+        const { data: res } = await axios.post('http://localhost:5000/api/auth/social', { email: result.user.email, displayName: result.user.displayName, photoURL: result.user.photoURL });
+        if (res.success) {
+          setUser(res.user);
+          localStorage.setItem('email', res.user.email);
+          toast.success("Successfully logged in");
+          navigate(location?.state || "/");
+        }
+
       }
     } catch (error) {
       toast.error("Sign in failed");
@@ -73,7 +74,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="bg-white py-8 min-h-screen flex justify-center items-center">
+    <div className="bg-white md:py-8 md:min-h-screen flex justify-center items-center">
       <div className="flex flex-col-reverse lg:flex-row w-full max-w-4xl mx-auto overflow-hidden bg-[#ebf4f6] rounded-lg shadow-lg">
         {/* Left Side: Content */}
         <div className="w-full lg:w-7/12 px-6 py-6 md:px-8">

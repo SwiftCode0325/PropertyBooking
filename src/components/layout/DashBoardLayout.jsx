@@ -2,8 +2,14 @@ import React from 'react';
 import DashNavbar from '../dashComponents/DashNavbar';
 import DashFooter from '../dashComponents/DashFooter';
 import { Outlet } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import Spinner from '../common/Spinner';
 
 const DashBoardLayout = () => {
+    const { loading } = useAuth();
+    
+    if (loading) return <Spinner />
+
     return (
         <><div className="min-h-screen flex lg:flex-row flex-col bg-white">
             <DashNavbar />

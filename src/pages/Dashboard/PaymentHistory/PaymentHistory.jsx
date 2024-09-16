@@ -1,31 +1,60 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { AuthContext } from '../../../provider/AuthProvider';
+import useGetAllPayments from '../../../hooks/useGetAllPayments';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
 
 const PaymentHistory = () => {
-    // Sample payment data (you can replace this with dynamic data from props or state)
-    const payments = [
-        {
-            _id: '123456',
-            userName: 'John Doe',
-            bookingTime: '2024-09-10 14:30',
-            paymentAmount: 500,
-            currency: 'BDT',
-            paymentStatus: 'Completed',
-        },
-        {
-            _id: '789012',
-            userName: 'Jane Smith',
-            bookingTime: '2024-09-09 10:00',
-            paymentAmount: 1000,
-            currency: 'BDT',
-            paymentStatus: 'Pending',
-        },
-        // Add more payment data here
-    ];
+    const { user } = useContext(AuthContext);
+    const [payments, paymentsLoader, refetch, setRefetch] = useGetAllPayments();
 
-    const handleDelete = (id) => {
-        // Add logic for handling payment deletion
-        console.log(`Deleted payment with ID: ${id}`);
+    const handleDelete = async (id) => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "bg-[#01204E] mx-2 px-3 py-2 text-white",
+                cancelButton: "bg-[#5994D4] mx-2 px-3 py-2 text-white",
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to delete this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await axios.delete(`http://localhost:5000/api/payment/payments/delete/${id}`);
+                    if (response.status === 200) {
+                        swalWithBootstrapButtons.fire({
+                            title: "Deleted!",
+                            text: "Your payment has been deleted.",
+                            icon: "success"
+                        });
+                        setRefetch(!refetch)
+                    }
+                } catch (error) {
+                    toast.error('Failed to delete!');
+                    console.error('Error deleting!', error);
+                }
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your payment file is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+
     };
 
     return (
@@ -37,40 +66,37 @@ const PaymentHistory = () => {
                 <table className='table-auto w-full text-left border-collapse border border-gray-200'>
                     <thead>
                         <tr className='bg-gray-100'>
-                            <th className='border px-4 py-2'>User Name</th>
-                            <th className='border px-4 py-2'>Booking Time</th>
-                            <th className='border px-4 py-2'>Payment Amount</th>
-                            <th className='border px-4 py-2'>Status</th>
-                            <th className='border px-4 py-2'>Action</th>
+                            <th className='border px-4 py-2'>No</th>
+                            <th className='border px-4 py-2'>Sender Number</th>
+                            <th className='border px-4 py-2'>Transition ID</th>
+                            <th className='border px-4 py-2'>Amount</th>
+                            <th className='border px-4 py-2'>Date</th>
+                            {user.role !== "user" && <th className='border px-4 py-2'>Action</th>}
                         </tr>
                     </thead>
                     <tbody>
-                        {payments.map((payment) => (
+                        {payments.map((payment, idx) => (
                             <tr key={payment._id} className='hover:bg-gray-50'>
-                                <td className='border px-4 py-2'>{payment.userName}</td>
-                                <td className='border px-4 py-2'>{payment.bookingTime}</td>
+                                <td className='border px-4 py-2'>{idx + 1}</td>
+                                <td className='border px-4 py-2'>{payment?.sender}</td>
                                 <td className='border px-4 py-2'>
-                                    {payment.paymentAmount} {payment.currency}
+                                    {payment?.transitionId}
                                 </td>
                                 <td className='border px-4 py-2'>
-                                    <span
-                                        className={`px-2 py-1 rounded-full text-xs ${payment.paymentStatus === 'Completed'
-                                                ? 'bg-green-200 text-green-800'
-                                                : 'bg-yellow-200 text-yellow-800'
-                                            }`}
-                                    >
-                                        {payment.paymentStatus}
-                                    </span>
+                                    {payment?.amount}
                                 </td>
                                 <td className='border px-4 py-2'>
+                                    {new Date(payment.createdAt).toLocaleDateString()}
+                                </td>
+                                {user.role !== "user" && <td className='border px-4 py-2 text-center'>
                                     <button
                                         onClick={() => handleDelete(payment._id)}
-                                        className='text-red-500 hover:text-red-700'
+                                        className='text-red-500 hover:text-red-700 mx-2'
                                         title='Delete'
                                     >
-                                        <FaTrash />
+                                        <FaTrash size={20} />
                                     </button>
-                                </td>
+                                </td>}
                             </tr>
                         ))}
                     </tbody>
