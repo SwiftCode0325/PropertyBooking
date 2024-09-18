@@ -28,7 +28,7 @@ const Dashboard = () => {
               className={"flex items-center gap-1 hover:bg-[#5994D4] rounded p-2"
               }
             >
-              <FaHome />DashboardHome
+              <FaHome />{user.role === 'user' && 'UserDashBoard'} {user.role === 'admin' && 'AdminDashBoard'} {user.role === 'owner' && 'OwnerDashBoard'}
             </NavLink>
 
             {user?.role === "user" ? <NavLink to="/dashboard/booking" className={({ isActive, isPending }) =>

@@ -2,6 +2,8 @@ import { useContext } from "react";
 import UserHome from "../UserHome/UserHome";
 import { AuthContext } from "../../../provider/AuthProvider";
 import ProfileDropdown from "../../../components/common/ProfileDropdown";
+import AdminHome from "./adminHome/AdminHome";
+import OwnerHome from "./ownerHome/OwnerHome";
 
 const DashHome = () => {
     const { user, setUser, logOut } = useContext(AuthContext);
@@ -18,6 +20,8 @@ const DashHome = () => {
                 {user && <ProfileDropdown user={user} handleSignOut={handleSignOut} />}
             </div>
             {user.role === "user" && <UserHome />}
+            {user.role === "admin" && <AdminHome />}
+            {user.role === "owner" && <OwnerHome />}
         </div>);
 };
 
