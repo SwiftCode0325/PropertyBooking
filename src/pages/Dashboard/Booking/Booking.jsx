@@ -38,7 +38,7 @@ const Booking = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.delete(`http://localhost:5000/api/bookings/booked/delete/${id}`);
+          const response = await axios.delete(`https://room-psi-ten.vercel.app/api/bookings/booked/delete/${id}`);
           if (response.status === 200) {
             swalWithBootstrapButtons.fire({
               title: "Deleted!",
@@ -75,7 +75,7 @@ const Booking = () => {
 
     console.log({ userId, flatId, sender, transitionId });
     try {
-      const response = await axios.post(`http://localhost:5000/api/payment/transition`, { userId, flatId, sender, transitionId, amount });
+      const response = await axios.post(`https://room-psi-ten.vercel.app/api/payment/transition`, { userId, flatId, sender, transitionId, amount });
       if (response.status === 200) {
         toast.success('payment sent successfully.');
         setIPaymentInfo({});

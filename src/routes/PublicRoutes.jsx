@@ -3,7 +3,7 @@ import RootLayout from "../components/layout/RootLayout";
 import About from "../pages/About/About";
 import Home from "../pages/Home/Home";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
-import Properties from "../pages/Properties/Properties";
+// import Properties from "../pages/Properties/Properties";
 import Login from "../pages/Login/Login";
 import Contact from "../pages/Contact/Contact";
 import Signup from "../pages/Signup/Signup";
@@ -37,12 +37,12 @@ export const router = createBrowserRouter([
       {
         path: "/details-page/:id",
         element: <Private><DetailsPage></DetailsPage></Private>,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
+        loader: ({ params }) => fetch(`https://room-psi-ten.vercel.app/api/rooms/room/${params.id}`),
       },
-      {
-        path: "/property",
-        element: <Properties />,
-      },
+      // {
+      //   path: "/property",
+      //   element: <Properties />,
+      // },
       {
         path: "/about-us",
         element: <About></About>,
@@ -114,7 +114,7 @@ export const router = createBrowserRouter([
       {
         path: "edit_room/:id",
         element: <AdminOwnerPrivate><EditRooms /></AdminOwnerPrivate>,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
+        loader: ({ params }) => fetch(`https://room-psi-ten.vercel.app/api/rooms/room/${params.id}`),
       },
     ],
   },

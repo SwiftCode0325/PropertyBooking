@@ -29,7 +29,7 @@ const TotalBookings = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.delete(`http://localhost:5000/api/bookings/booked/delete/${id}`);
+                    const response = await axios.delete(`https://room-psi-ten.vercel.app/api/bookings/booked/delete/${id}`);
                     if (response.status === 200) {
                         swalWithBootstrapButtons.fire({
                             title: "Deleted!",
@@ -57,7 +57,7 @@ const TotalBookings = () => {
 
     const handleStatus = async (id, status) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/bookings/booked/status/${id}`, { status });
+            const response = await axios.put(`https://room-psi-ten.vercel.app/api/bookings/booked/status/${id}`, { status });
             if (response.status === 200) {
                 toast.success('status changed successfully!');
                 setRefetch(!refetch)
