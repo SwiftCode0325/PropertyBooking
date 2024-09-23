@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
       {
         path: "/details-page/:id",
         element: <Private><DetailsPage></DetailsPage></Private>,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
+        loader: ({ params }) => fetch(`https://room-psi-ten.vercel.app/api/rooms/room/${params.id}`),
       },
       {
         path: "/property",
@@ -114,7 +114,7 @@ export const router = createBrowserRouter([
       {
         path: "edit_room/:id",
         element: <AdminOwnerPrivate><EditRooms /></AdminOwnerPrivate>,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/rooms/room/${params.id}`),
+        loader: ({ params }) => fetch(`https://room-psi-ten.vercel.app/api/rooms/room/${params.id}`),
       },
     ],
   },

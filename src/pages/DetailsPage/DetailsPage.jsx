@@ -59,7 +59,7 @@ const DetailsPage = () => {
     }
 
     try {
-      const { data } = await axios.post("http://localhost:5000/api/bookings/book-room", bookingData);
+      const { data } = await axios.post("https://room-psi-ten.vercel.app/api/bookings/book-room", bookingData);
       toast.success("Booking has been created!");
       setIsModalOpen(false);
       navigate('/dashboard/booking')

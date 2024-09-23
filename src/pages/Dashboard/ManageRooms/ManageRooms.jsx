@@ -10,7 +10,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 const ManageRooms = () => {
     const [rooms, roomsLoader, refetch, setRefetch] = useGetDataByRole();
     const navigate = useNavigate();
-    
+
     const handleEdit = (id) => {
         navigate(`/dashboard/edit_room/${id}`);
     };
@@ -34,7 +34,7 @@ const ManageRooms = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const { data: res } = await axios.delete(`http://localhost:5000/api/rooms/delete/${id}`);
+                    const { data: res } = await axios.delete(`https://room-psi-ten.vercel.app/api/rooms/delete/${id}`);
                     if (res.success) {
                         swalWithBootstrapButtons.fire({
                             title: "Deleted!",

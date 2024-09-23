@@ -11,7 +11,7 @@ const useGetDataByRole = () => {
         loadData()
     }, [user, refetch])
     const loadData = async () => {
-        const response = await fetch(`http://localhost:5000/api/rooms//all-rooms-by-role/${user._id}`);
+        const response = await fetch(`https://room-psi-ten.vercel.app/api/rooms//all-rooms-by-role/${user._id}`);
         const data = await response.json();
         if (data) {
             setRooms(data)

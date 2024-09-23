@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     setLoading(true)
     if (!user && localStorage.getItem('email')) {
-      fetch(`http://localhost:5000/api/users/${localStorage.getItem('email')}`)
+      fetch(`https://room-psi-ten.vercel.app/api/users/${localStorage.getItem('email')}`)
         .then((res) => res.json())
         .then((data) => {
           if (data) {

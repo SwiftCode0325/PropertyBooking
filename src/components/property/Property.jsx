@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useGetAllData from "../../hooks/useGetAllData";
 import Card from "../common/Card";
 import { Link } from "react-router-dom";
@@ -14,14 +14,14 @@ const Property = () => {
     const [selectedCity, setSelectedCity] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [filters, setFilters] = useState({
-      furnished: false,
-      hasBalcony: false,
-      hasPool: false,
-      hasGarden: false,
-      hasElevator: false,
-      hasAirConditioning: false,
-      hasFridge: false,
-      hasWifi: false,
+        furnished: false,
+        hasBalcony: false,
+        hasPool: false,
+        hasGarden: false,
+        hasElevator: false,
+        hasAirConditioning: false,
+        hasFridge: false,
+        hasWifi: false,
     });
 
     // Extract unique options for area, city, and district
