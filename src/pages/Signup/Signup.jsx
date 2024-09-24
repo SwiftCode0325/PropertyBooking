@@ -41,7 +41,7 @@ const Signup = () => {
     }
 
     try {
-      const { data: res } = await axios.post('https://room-psi-ten.vercel.app/api/auth/signup', { email, password, displayName: name });
+      const { data: res } = await axios.post('https://room-backend-final-main.vercel.app/api/auth/signup', { email, password, displayName: name });
       if (res.success) {
         setUser(res.user);
         localStorage.setItem('email', res.user.email);
@@ -59,7 +59,7 @@ const Signup = () => {
     try {
       const result = await socialProvider();
       if (result.user) {
-        const { data: res } = await axios.post('https://room-psi-ten.vercel.app/api/auth/social', { email: result.user.email, displayName: result.user.displayName, photoURL: result.user.photoURL });
+        const { data: res } = await axios.post('https://room-backend-final-main.vercel.app/api/auth/social', { email: result.user.email, displayName: result.user.displayName, photoURL: result.user.photoURL });
         if (res.success) {
           setUser(res.user);
           localStorage.setItem('email', res.user.email);

@@ -31,7 +31,7 @@ const PaymentHistory = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.delete(`https://room-psi-ten.vercel.app/api/payment/payments/delete/${id}`);
+                    const response = await axios.delete(`https://room-backend-final-main.vercel.app/api/payment/payments/delete/${id}`);
                     if (response.status === 200) {
                         swalWithBootstrapButtons.fire({
                             title: "Deleted!",

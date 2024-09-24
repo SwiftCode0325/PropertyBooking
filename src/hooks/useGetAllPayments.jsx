@@ -14,7 +14,7 @@ const useGetAllPayments = () => {
 
     async function loadData() {
         try {
-            const response = await axios.get(`https://room-psi-ten.vercel.app/api/payment/payments/${user._id}`);
+            const response = await axios.get(`https://room-backend-final-main.vercel.app/api/payment/payments/${user._id}`);
             setPayments(response.data.finalPayments);
             setPaymentsLoader(false);
         } catch (error) {

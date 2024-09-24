@@ -30,7 +30,7 @@ const ManageUsers = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.delete(`https://room-psi-ten.vercel.app/api/users/delete/${id}`);
+                    const response = await axios.delete(`https://room-backend-final-main.vercel.app/api/users/delete/${id}`);
                     if (response.status === 200) {
                         swalWithBootstrapButtons.fire({
                             title: "Deleted!",
@@ -62,7 +62,7 @@ const ManageUsers = () => {
         }
 
         try {
-            const response = await axios.put(`https://room-psi-ten.vercel.app/api/users/update/role/${id}`, { role: newRole });
+            const response = await axios.put(`https://room-backend-final-main.vercel.app/api/users/update/role/${id}`, { role: newRole });
             if (response.status === 200) {
                 toast.success('User role updated successfully!');
                 setRefetch(!refetch);
