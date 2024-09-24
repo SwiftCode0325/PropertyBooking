@@ -11,7 +11,7 @@ const useGetAllBooking = () => {
         loadData()
     }, [refetch])
     const loadData = async () => {
-        const response = await fetch(`https://room-psi-ten.vercel.app/api/bookings/booked/user/${user?._id}`);
+        const response = await fetch(`https://room-backend-final-main.vercel.app/api/bookings/booked/user/${user?._id}`);
         const data = await response.json();
         setBookings(data)
         setBookingsLoader(false)

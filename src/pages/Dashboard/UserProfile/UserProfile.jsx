@@ -18,7 +18,7 @@ const UserProfile = () => {
     if (imageFile) {
       const image = await uploadImageToImgBB(imageFile);
       try {
-        const { data: res } = await axios.put(`https://room-psi-ten.vercel.app/api/users/update/profile/${user._id}`, { displayName, photoURL: image });
+        const { data: res } = await axios.put(`https://room-backend-final-main.vercel.app/api/users/update/profile/${user._id}`, { displayName, photoURL: image });
         setUser(res.user);
 
         toast.success("profile updated successfully");
@@ -30,7 +30,7 @@ const UserProfile = () => {
       }
     } else {
       try {
-        const { data: res } = await axios.put(`https://room-psi-ten.vercel.app/api/users/update/profile/${user._id}`, { displayName, photoURL: null });
+        const { data: res } = await axios.put(`https://room-backend-final-main.vercel.app/api/users/update/profile/${user._id}`, { displayName, photoURL: null });
         setUser(res.user);
 
         toast.success("profile updated successfully");

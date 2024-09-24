@@ -101,7 +101,7 @@ const AddRoom = () => {
         }
 
         try {
-            const { data: res } = await axios.post('https://room-psi-ten.vercel.app/api/rooms/add-room', newData);
+            const { data: res } = await axios.post('https://room-backend-final-main.vercel.app/api/rooms/add-room', newData);
             console.log(res);
             if (res.success) {
                 toast.success("added room successfully");

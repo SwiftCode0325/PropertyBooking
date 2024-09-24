@@ -9,7 +9,7 @@ const useGetAllUser = () => {
         loadData()
     }, [!refetch])
     const loadData = async () => {
-        const response = await fetch('https://room-psi-ten.vercel.app/api/users');
+        const response = await fetch('https://room-backend-final-main.vercel.app/api/users');
         const data = await response.json();
         setUsers(data)
         setUsersLoader(false)

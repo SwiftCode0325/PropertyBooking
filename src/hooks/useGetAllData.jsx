@@ -8,7 +8,7 @@ const useGetAllData = () => {
         loadData()
     }, [])
     const loadData = async () => {
-        const response = await fetch('https://room-psi-ten.vercel.app/api/rooms/all-rooms');
+        const response = await fetch('https://room-backend-final-main.vercel.app/api/rooms/all-rooms');
         const data = await response.json();
         setProperties(data.rooms)
         setPropertiesLoader(false)

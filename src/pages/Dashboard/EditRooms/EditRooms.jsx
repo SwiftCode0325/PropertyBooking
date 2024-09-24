@@ -88,7 +88,7 @@ const EditRooms = () => {
         }
 
         try {
-            const { data: res } = await axios.post(`https://room-psi-ten.vercel.app/api/rooms/update/${room._id}`, newData);
+            const { data: res } = await axios.post(`https://room-backend-final-main.vercel.app/api/rooms/update/${room._id}`, newData);
             if (res.success) {
                 toast.success("added room successfully");
                 form.reset();

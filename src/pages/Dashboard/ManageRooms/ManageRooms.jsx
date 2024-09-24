@@ -34,7 +34,7 @@ const ManageRooms = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const { data: res } = await axios.delete(`https://room-psi-ten.vercel.app/api/rooms/delete/${id}`);
+                    const { data: res } = await axios.delete(`https://room-backend-final-main.vercel.app/api/rooms/delete/${id}`);
                     if (res.success) {
                         swalWithBootstrapButtons.fire({
                             title: "Deleted!",
