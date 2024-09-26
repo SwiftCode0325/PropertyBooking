@@ -15,7 +15,6 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import AddRoom from "../pages/Dashboard/AddRoom/AddRoom";
 import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
-import Features from "../components/common/Features/Features";
 import Blog from "../components/common/FeaturesDropDown/Blog";
 import Gallery from "../components/common/FeaturesDropDown/Gallery";
 import EditRooms from "../pages/Dashboard/EditRooms/EditRooms";
@@ -64,11 +63,7 @@ export const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
-        path: "/features",
-        element: <Features></Features>,
-      },
-      {
-        path: "/blog",
+        path: "/blogs",
         element: <Blog></Blog>,
       },
       {

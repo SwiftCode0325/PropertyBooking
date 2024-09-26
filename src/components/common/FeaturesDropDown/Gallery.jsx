@@ -22,9 +22,9 @@ const Gallery = () => {
   return (
     <div>
       <div className="flat-details-page">
-        <h1 className="text-2xl font-bold mb-6">Flat Gallery</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Flat Gallery</h1>
       </div>
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-4 my-12">
         {/* First column: Full height image */}
         <div className="row-span-3 col-span-1">
           <img
