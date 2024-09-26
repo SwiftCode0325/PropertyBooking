@@ -12,8 +12,9 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Property", href: "/property" },
     { name: "About Us", href: "/about-us" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Features", href: "/features" },
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
